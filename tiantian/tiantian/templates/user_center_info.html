@@ -1,0 +1,50 @@
+{% extends "base_usercenter.html" %}
+{ % comment % }
+	用户中心--个人信息
+{ % endcomment % }
+
+
+{% block right_content %}
+    {# 此处根据左侧选择填写右侧具体功能页面 #}
+    <h3 class="common_title2">收货地址</h3>
+				<div class="site_con clearfix" >
+				{%for per in receInfo%}
+					<dl class="fl">	
+						
+								<dt>收件人：</dt>
+          			<dd>{{per.recePerName}}</dd>
+                <dt>地址：</dt>
+                <dd>{{per.addr}}</dd>
+                <dt>联系方式：</dt>
+                <dd>{{per.recePerTel}}</dd>
+                <br>
+						
+					</dl>		
+					{%endfor%}			
+				</div>
+				<h3 class="common_title2">编辑地址</h3>
+				<div class="site_con">
+			 <form action="/usersitehandler/" method="post">
+						<div class="form_group">
+							<label>收件人：</label>
+							<input type="text" name="recePerName">
+						</div>
+						<div class="form_group form_group2">
+							<label>详细地址：</label>
+							<textarea class="site_area" name="addr"></textarea>
+						</div>
+						<div class="form_group">
+							<label>邮编：</label>
+							<input type="text" name="postCode">
+						</div>
+						<div class="form_group">
+							<label>联系方式：</label>
+							<input type="text" name="recePerTel">
+						</div>
+
+						<input type="submit" name="" value="提交" class="info_submit">
+					</form>
+					</form>
+				</div>
+
+{% endblock right_content %}
