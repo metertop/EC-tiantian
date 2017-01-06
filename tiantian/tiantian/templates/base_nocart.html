@@ -8,11 +8,16 @@
 		<a href="index.html" class="logo fl"><img src="/static/images/logo.png"></a>
 		<div class="sub_page_name fl">|&nbsp;&nbsp;&nbsp;&nbsp;{{ pageName }}</div>
 		{#此处填写LOGO后的页面名称：用户中心/购物车/提交订单#}
+		<div  class="sub_page_name fl">提交订单</div>
+
 		<div class="search_con fr">
 			<input type="text" class="input_text fl" name="" placeholder="搜索商品">
 			<input type="button" class="input_btn fr" name="" value="搜索">
 		</div>		
 	</div>
+	{% block block_placeOrder%}
+	{% endblock block_placeOrder %}
+
 	{% block usercenter %}
 	{# 此处填写用户中心页面中间右侧的信息 #}
 	{% endblock usercenter %}

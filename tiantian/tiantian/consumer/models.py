@@ -1,3 +1,4 @@
+#coding=utf-8
 from django.db import models
 
 class UserInfo(models.Model):
@@ -7,7 +8,7 @@ class UserInfo(models.Model):
 	uemail = models.CharField(max_length=40)
 	isDelete = models.BooleanField(default = False)
 	class Meta():
-        db_table = "userinfo"
+		db_table = "userinfo"
 
 
 class RecInfo(models.Model):
@@ -19,4 +20,4 @@ class RecInfo(models.Model):
 	isDelete = models.BooleanField(default=False)
 	userNum = models.ForeignKey('UserInfo')
 	class Meta():
-        db_table = "recinfo"
+		db_table = "recinfo"
