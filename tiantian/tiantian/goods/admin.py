@@ -1,13 +1,22 @@
+#coding:utf-8
 from django.contrib import admin
 
 from models import *
 
-class GoodsInfoInline(admin.StackedInline):
-    model = GoodsInfo
+# class GoodsInfoInline(admin.StackedInline):
+#     model = GoodsInfo
+#     extra = 1
+#
+# class TypeInfoInline(admin.ModelAdmin):
+#     inlines = [GoodsInfoInline]
+    # search_fields：搜索字段，搜索框会出现在上侧
 
 class TypeInfoInline(admin.ModelAdmin):
-    inlines = [GoodsInfoInline]
-    # search_fields：搜索字段，搜索框会出现在上侧
-    search_fields = ['ttitle']
+    list_display = ['id', 'ttitle','isDelete','title1','title2','title3','tImgAdd']
 
-admin.site.register(TypeInfo, TypeInfoInline)
+
+class GoodsInfoInline(admin.ModelAdmin):
+    list_display = ['pk', 'gtitle', 'gprice', 'gdesc','gimgAdd','gimgDetail','gdetail','isDelete','gtype']
+
+admin.site.register(TypeInfo,TypeInfoInline)
+admin.site.register(GoodsInfo,GoodsInfoInline)

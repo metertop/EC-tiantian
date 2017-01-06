@@ -6,6 +6,8 @@ class OrderInfo(models.Model):
 	user = models.CharField(max_length=20)
 	ototal = models.DecimalField(max_digits=10,decimal_places=2)
 	state = models.BooleanField(default=False)
+
+
 class OrderDetailInfo(models.Model):
 	order = models.ForeignKey('OrderInfo')
 	goods = models.CharField(max_length=20)
