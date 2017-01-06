@@ -8,8 +8,63 @@ $(function(){
 
 
 	$('#user_name').blur(function() {
+		var namehad = $("#user_name").val();
+		$.post('/consumer/checkReName/', {'uname':namehad}, 
+		       function(list){
+		       	if(list.checkResult == '1'){
+		       		$("#user_name").next().html('用户名已存在！');
+		       		$("#user_name").next().show();
+		       		error_name = true;
+		       	}
+
+		       })
 		check_user_name();
 	});
+
+	//<script type="text/javascript">
+	// $(function(){
+			$('.name_input').blur(function(){
+				var uname = $(".name_input").val();
+				$.post('/consumer/checkUname/', {'uname':uname}, 
+		       function(list){
+		       	if(list.checkRight == '0')
+		       	{
+		       		$(".name_input").next().html('用户名不存在!');
+		       		$(".name_input").next().show();
+		       	}
+		       	else{$(".name_input").next().hide();}
+
+		       })
+			})
+			$('.pass_input').blur(function(){
+				var upwd = $(".pass_input").val();
+		       	if(upwd == '')
+		       	{
+		       		$(".pass_input").next().html('密码不能为空!');
+		       		$(".pass_input").next().show();
+		       	}
+		       	else{$(".pass_input").next().hide();}
+
+			})
+			$('.input_submit').click(function(){
+				var uname = $(".name_input").val();
+				var upwd = $(".pass_input").val();
+				$.post('/consumer/loginHandle/', {'uname':uname,'upwd':upwd}, 
+		       function(list){
+		       	if(list.checkRight == '0')
+		       	{
+		       		$(".name_input").next().html('用户名或密码错误!');
+		       		$(".name_input").next().show();
+		       		$(".pass_input").next().html('用户名或密码错误!');
+		       		$(".pass_input").next().show();
+		       	}
+		       	// else{$(".name_input").next().hide();$(".pass_input").next().hide();}
+
+		       })
+
+		       })
+			
+	// })
 
 	$('#pwd').blur(function() {
 		check_pwd();
