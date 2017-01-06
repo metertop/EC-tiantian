@@ -25,7 +25,11 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('ttitle', models.CharField(max_length=30)),
+<<<<<<< HEAD
                 ('isDelete', models.BooleanField(default=0)),
+=======
+                ('isDelete', models.BooleanField(default=False)),
+>>>>>>> 3149d691db60493580e578a0b9852f89af6a772d
             ],
         ),
         migrations.AddField(
