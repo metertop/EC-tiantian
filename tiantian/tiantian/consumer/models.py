@@ -3,7 +3,7 @@ from django.db import models
 class UserInfo(models.Model):
 	# 用户信息
 	uname = models.CharField(max_length=20)
-	upwd = models.CharField(max_length=20)	
+	upwd = models.CharField(max_length=20)
 	uemail = models.CharField(max_length=40)
 	isDelete = models.BooleanField(default = False)
 	class Meta():
