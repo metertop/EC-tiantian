@@ -6,7 +6,12 @@ class OrderInfo(models.Model):
 	user = models.CharField(max_length=20)
 	ototal = models.DecimalField(max_digits=10,decimal_places=2)
 	state = models.BooleanField(default=False)
+<<<<<<< HEAD
 #订单详情模型
+=======
+
+
+>>>>>>> d3234dc8c9150c4c0208250253af567e0c9d32b0
 class OrderDetailInfo(models.Model):
 	order = models.ForeignKey('OrderInfo')
 	goods = models.CharField(max_length=20)

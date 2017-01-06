@@ -1,3 +1,17 @@
+# coding=utf-8
 from django.contrib import admin
+from models import *
 
-# Register your models here.
+
+class UserInfoAdmin(admin.ModelAdmin):
+	list_display = ['uname', 'upwd'
+					,'uemail', 'isDelete']
+
+
+class RecInfoAdmin(admin.ModelAdmin):
+	list_display = ['name', 'address',
+					'tel', 'postcode', 'isDelete', 'userNum']
+
+
+admin.site.register(UserInfo, UserInfoAdmin)
+admin.site.register(RecInfo, RecInfoAdmin)
