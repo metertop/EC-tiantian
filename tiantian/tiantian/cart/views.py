@@ -1,9 +1,9 @@
 # coding=utf-8
 from django.shortcuts import render
-from django.http import JsonResponse
-from models import CartInfo
-from goods.models import GoodsInfo
 from order.models import OrderInfo,OrderDetailInfo
+
+from models import CartInfo
+
 
 def cart(request):
     # uid = request.COOKIES['id']  # 获取用户名???存ID比较好

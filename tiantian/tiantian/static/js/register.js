@@ -10,13 +10,14 @@ $(function(){
 	$('#user_name').blur(function() {
 		var namehad = $("#user_name").val();
 		$.post('/consumer/checkReName/', {'uname':namehad}, 
-		       function(list){
-		       	if(list.checkResult == '1'){
+		       function(list)
+			   {
+		       	if(list.checkResult == '1')
+		       	{
 		       		$("#user_name").next().html('用户名已存在！');
 		       		$("#user_name").next().show();
 		       		error_name = true;
 		       	}
-
 		       })
 		check_user_name();
 	});
@@ -176,12 +177,4 @@ $(function(){
 		}
 
 	});
-
-
-
-
-
-
-
-
 })

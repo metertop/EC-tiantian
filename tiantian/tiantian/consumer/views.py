@@ -1,7 +1,6 @@
 #coding:utf-8
 from django.shortcuts import render,redirect
 from hashlib import sha1
-from SQLHelper import MySQLHelper
 from django.http import HttpResponse,JsonResponse
 from models import UserInfo,RecInfo
 from django.views.decorators.csrf import csrf_exempt
