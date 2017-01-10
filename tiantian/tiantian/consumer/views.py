@@ -110,6 +110,7 @@ def loginHandle(request):
 			elif user_list[0].upwd == pwd:
 				save_id = user_list[0].id
 				request.session['id'] = save_id
+				request.session['uname'] = uname
 				flag = request.POST.get('isrember', default='')
 				#勾选记住用户名
 				if flag == "on":
@@ -139,6 +140,7 @@ def loginHandle(request):
 # 用户退出
 def loginout(request):
 	del request.session['id'] 
+	del request.session['uname']
 	return redirect('/consumer/index/')
 
 #跳转到用户中心个人信息页面
@@ -162,7 +164,6 @@ def user_center_site(request):
 		print(a.address)
 		print(a.tel)
 	user_list = UserInfo.objects.filter(id=get_id)
-	#name = "("+user_list[0].uname+" receive)"
 	name = user_list[0].uname
 	context = {
 				'name':name,
