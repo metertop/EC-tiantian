@@ -4,10 +4,7 @@ from hashlib import sha1
 from django.http import HttpResponse,JsonResponse,HttpResponseRedirect
 from models import UserInfo,RecInfo
 from django.views.decorators.csrf import csrf_exempt
-
-#首页
-def index(request):
-	return HttpResponse("HELLO WORLD!!!")
+from goods.models import GoodsInfo
 
 #登陆
 def login(request):
@@ -68,7 +65,7 @@ def registerHandle(request):
 					u.uemail=uemail
 					u.upwd=upwd
 					u.save()
-					return redirect("/consumer/index/")
+					return redirect("/goods/index/")
 
 		else:
 			return redirect("/consumer/register")
@@ -89,7 +86,6 @@ def checkUname(request):
 
 
 # 登陆请求数据的处理
-#@csrf_exempt
 def loginHandle(request):
 	if request.method == "POST":
 		uname = request.POST['username']
@@ -115,12 +111,9 @@ def loginHandle(request):
 				#勾选记住用户名
 				if flag == "on":
 					response = HttpResponseRedirect("/consumer/user_center_info/")
-					#response = HttpResponse()
-					#print("这是要写入的cookie:%s"%flag)
 					print(uname)
 					response.set_cookie('remberName', uname,3600)
 					return response
-				#return redirect("/consumer/index/")
 				else:
 					response = HttpResponseRedirect("/consumer/user_center_info/")
 					#清理cookie里保存remberName
@@ -146,11 +139,17 @@ def loginout(request):
 #跳转到用户中心个人信息页面
 def user_center_info(request):
 	get_id = request.session.get('id')
-	user_list = UserInfo.objects.filter(id=get_id)
+	user_list = UserInfo.objects.filter(id=get_id)    
+	latest_goods_list_id = request.session.get('latest_goods_list')[0:5]
+	latest_goods_list = []
+	for goods_id in latest_goods_list_id:
+		goods = GoodsInfo.objects.get(id=goods_id)
+		latest_goods_list.append(goods)
 	context = {
 				'name':user_list[0].uname,
 				'tel':user_list[0].utel,
 				'address':user_list[0].address
+				'latest_goods_list':latest_goods_list
 				}
 	return render(request,'consumer/user_center_info.html',context)
 
