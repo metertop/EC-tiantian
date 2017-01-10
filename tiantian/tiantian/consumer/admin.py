@@ -14,3 +14,17 @@ class RecInfoAdmin(admin.ModelAdmin):
 
 admin.site.register(UserInfo, UserInfoAdmin)
 admin.site.register(RecInfo, RecInfoAdmin)
+
+# class UserInfoAdmin(admin.ModelAdmin):
+# 	list_display = ['uname', 'upwd'
+# 					,'uemail', 'isDelete']
+#
+#
+# class RecInfoAdmin(admin.ModelAdmin):
+# 	list_display = ['name', 'address',
+# 					'tel', 'postcode', 'isDelete', 'userNum']
+#
+#
+# admin.site.register(UserInfo, UserInfoAdmin)
+# admin.site.register(RecInfo, RecInfoAdmin)
+

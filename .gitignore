@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .gradle
 .idea
 /local.properties
@@ -11,3 +12,6 @@
 .idea/modules.xml
 tiantian/tiantian/goods/search_indexes.pyc
 tiantian/tiantian/whoosh_index/
+=======
+*.pyc
+>>>>>>> 94d66d135b536d19b3b87568b911fa7e50e6312c
