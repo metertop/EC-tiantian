@@ -1,5 +1,7 @@
 {% extends "goods/base_top_common.html"%}
+{% load staticfiles %}
 {% block bottomContent %}
+    <script type="text/javascript" src="{% static 'js/addCart.js'%}"></script>
 	<div class="breadcrumb">
 		<a href="#">全部分类</a>
 		<span>></span>
@@ -13,8 +15,8 @@
 				<ul>
 					{% for newGoods in list1%}
 						<li>
-							<a href="#"><img src="/static/media/{{newGoods.gimgAdd}}"></a>
-							<h4><a href="#">{{newGoods.gtitle}}</a></h4>
+							<a href="/goods/detail/{{newGoods.id}}"><img src="/static/media/{{newGoods.gimgAdd}}"></a>
+							<h4><a href="/goods/detail/{{newGoods.id}}">{{newGoods.gtitle}}</a></h4>
 							<div class="prize">￥{{newGoods.gprice}}</div>
 						</li>
 					{% endfor %}
@@ -31,10 +33,10 @@
 			</div>
 
 			<ul class="goods_type_list clearfix">
-				{% for goods in list%}
+				{% for goods in list2%}
 					<li>
-						<a href="detail.html"><img src="/static/media/{{goods.gimgAdd}}"></a>
-						<h4><a href="/goods/detail/{{good.id}}">{{goods.gtitle}}</a></h4>
+						<a href="/goods/detail/{{goods.id}}"><img src="/static/media/{{goods.gimgAdd}}"></a>
+						<h4><a href="/goods/detail/{{goods.id}}">{{goods.gtitle}}</a></h4>
 						<div class="operate">
 							<span class="prize">￥{{goods.gprice}}</span>
 							<span class="unit">{{goods.gprice}}/500g</span>

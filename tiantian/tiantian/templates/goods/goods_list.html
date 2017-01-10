@@ -1,12 +1,25 @@
 {% extends 'goods/base_list.html' %}
 {% block bottom%}
-    <div class="pagenation">
-				<a href="#">上一页</a>
-				<a href="#" class="active">1</a>
-				<a href="#">2</a>
-				<a href="#">3</a>
-				<a href="#">4</a>
-				<a href="#">5</a>
-				<a href="#">下一页></a>
-    </div>
+         <div class="pagenation">
+            <a href="/goods/list/{{ id }}/1/">首页</a>
+{#             <a href=''>上一页</a>#}
+            {% if list2.has_previous %}
+                   <a href='/goods/list/{{ id }}/{{  list2.previous_page_number }}/'>上一页</a>
+            {% endif %}
+
+            {% for pindex in plist %}
+                {% if pindex == pIndex %}
+                        <a href="#" class="active">{{ pindex }}</a>
+                {% else %}
+                    <a href="/goods/list/{{ id }}/{{ pindex }}/">{{ pindex }}</a>&nbsp;&nbsp;
+                {% endif %}
+            {% endfor %}
+
+            {% if list2.has_next %}
+                   <a href='/goods/list/{{ id }}/{{  list2.next_page_number }}'>下一页</a>
+            {% endif %}
+
+            <a href="/goods/list/{{ id }}/{{ length }}/">尾页</a>
+            <a >共&nbsp;{{ length }}&nbsp;页</a>
+        </div>
 {% endblock%}

@@ -10,6 +10,7 @@ class UserInfo(models.Model):
 	address = models.CharField(max_length=100,default="北京海淀区中关村软件园")
 	#address = models.CharField(max_length=100,default="ChinaBeiJing")
 	isDelete = models.BooleanField(default = False)
+
 	class Meta():
 		db_table = "userinfo"
 
