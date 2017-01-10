@@ -4,8 +4,8 @@ from models import *
 
 
 class UserInfoAdmin(admin.ModelAdmin):
-	list_display = ['uname', 'upwd'
-					,'uemail', 'isDelete']
+	list_display = ['uname', 'upwd','utel'
+					,'uemail','address', 'isDelete']
 
 
 class RecInfoAdmin(admin.ModelAdmin):

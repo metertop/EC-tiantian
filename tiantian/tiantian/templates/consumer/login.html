@@ -6,54 +6,7 @@
 {% block title %}
 	天天生鲜-登录
 {% endblock %}
-<!-- {% block js %}
-<script type="text/javascript">
-	$(function(){
-			$('.name_input').blur(function(){
-				var uname = $(".name_input").val();
-				$.post('/consumer/checkUname/', {'uname':uname}, 
-		       function(list){
-		       	if(list.checkRight == '0')
-		       	{
-		       		$(".name_input").next().html('用户名不存在!');
-		       		$(".name_input").next().show();
-		       	}
-		       	else{$(".name_input").next().hide();}
 
-		       })
-			})
-			$('.pass_input').blur(function(){
-				var upwd = $(".pass_input").val();
-		       	if(upwd == '')
-		       	{
-		       		$(".pass_input").next().html('密码不能为空!');
-		       		$(".pass_input").next().show();
-		       	}
-		       	else{$(".pass_input").next().hide();}
-
-			})
-			$('.input_submit').click(function(){
-				var uname = $(".name_input").val();
-				var upwd = $(".pass_input").val();
-				$.post('/consumer/loginHandle/', {'uname':uname,'upwd':upwd}, 
-		       function(list){
-		       	if(list.checkRight == '0')
-		       	{
-		       		$(".name_input").next().html('用户名或密码错误!');
-		       		$(".name_input").next().show();
-		       		$(".pass_input").next().html('用户名或密码错误!');
-		       		$(".pass_input").next().show();
-		       	}
-		       	// else{$(".name_input").next().hide();$(".pass_input").next().hide();}
-
-		       })
-
-		       })
-			
-	})
-
-</script>
-{% endblock js %} -->
 
 {% block head %}
 <div class="login_top clearfix">
@@ -70,7 +23,7 @@
 				</div>
 				<div class="form_input">
 					<form action="/consumer/loginHandle/" method="post">
-						<input type="text" name="username" class="name_input" placeholder="请输入用户名">
+						<input type="text" name="username" class="name_input" placeholder="请输入用户名" value="{{remberName}}">
 						<div class="user_error">{{errinfo}}</div>
 						<input type="password" name="pwd" class="pass_input" placeholder="请输入密码">
 
