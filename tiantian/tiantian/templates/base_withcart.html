@@ -14,7 +14,12 @@
         </form>
 		<div class="guest_cart fr">
 			<a href="#" class="cart_name fl">我的购物车</a>
-			<div class="goods_count fl" id="show_count">0</div>
+
+			{% if cartNum%}
+				<div class="goods_count fl" id="show_count">{{cartNum}}</div>
+			{% else %}
+				<div class="goods_count fl">0</div>
+			{% endif%}
 		</div>
 	</div>
 	{% block content %}

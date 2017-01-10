@@ -126,7 +126,7 @@ def loginHandle(request):
 					response.delete_cookie('remberName')
 					return response
 
-				return redirect("/consumer/user_center_info/")
+				return redirect("/goods/")
 			
 			else:
 				# 密码错误!

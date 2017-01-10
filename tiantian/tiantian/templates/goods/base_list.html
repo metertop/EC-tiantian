@@ -15,8 +15,8 @@
 				<ul>
 					{% for newGoods in list1%}
 						<li>
-							<a href="/goods/detail/{{ goods.id }}"><img src="/static/media/{{newGoods.gimgAdd}}"></a>
-							<h4><a href="/goods/detail/{{ goods.id }}">{{newGoods.gtitle}}</a></h4>
+							<a href="/goods/detail/{{newGoods.id}}"><img src="/static/media/{{newGoods.gimgAdd}}"></a>
+							<h4><a href="/goods/detail/{{newGoods.id}}">{{newGoods.gtitle}}</a></h4>
 							<div class="prize">￥{{newGoods.gprice}}</div>
 						</li>
 					{% endfor %}
