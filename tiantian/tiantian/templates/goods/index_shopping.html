@@ -11,30 +11,27 @@
    		<div class="list_model">
 			<div class="list_title clearfix">
 
-				<!--预留问老师的问题,-->
 				{% for good in goods %}
-					{% if forloop.counter|divisibleby:'4'%}
+					{% if forloop.first %}
 						<h3 class="fl" id="model01">{{good.gtype.ttitle}}</h3>
 
 						<div class="subtitle fl">
-						<span>|</span>
-						<a href="#">{{good.gtype.title1}}</a>
-						<a href="#">{{good.gtype.title2}}</a>
-						<a href="#">{{good.gtype.title3}}</a>
-
-				</div>
-				<a href="/goods/list/{{good.gtype.id}}" class="goods_more fr" id="fruit_more">查看更多 ></a>
-					{% endif %}
+                            <span>|</span>
+                            <a href="#">{{good.gtype.title1}}</a>
+                            <a href="#">{{good.gtype.title2}}</a>
+                            <a href="#">{{good.gtype.title3}}</a>
+				        </div>
+                        <a href="/goods/list/{{good.gtype.id}}/1" class="goods_more fr" id="fruit_more">查看更多 ></a>
+                    {% endif %}
 				{% endfor %}
 
-
-		</div>
+		    </div>
 
 
 			<div class="goods_con clearfix">
 
 				{% for good in goods %}
-					{% if forloop.counter|divisibleby:'4'%}
+					{% if forloop.first %}
 						<div class="goods_banner fl"><img src="/static/media/{{good.gtype.tImgAdd}}"></div>
 					{% endif %}
 				{% endfor %}
@@ -49,7 +46,7 @@
 						{% endfor %}
 					</ul>
 			</div>
-	</div>
+	    </div>
 {% endfor %}
 
 {% endblock shoping %}

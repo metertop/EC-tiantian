@@ -13,6 +13,7 @@ class OrderDetailInfo(models.Model):
 	# CommaSeparatedIntegerField逗号分隔的整数，IntegerField 整数
 	count = models.IntegerField(max_length=None)
 	price = models.DecimalField(max_digits=20,decimal_places=2)
+
 #购物车数据
 class CartInfo(models.Model):
 	user = models.CharField(max_length=20)

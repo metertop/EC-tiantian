@@ -23,15 +23,16 @@
 			<div class="goods_num clearfix">
 				<div class="num_name fl">数 量：</div>
 				<div class="num_add fl">
-					<input type="text" class="num_show fl" value="1">
+					<input type="text" class="num_show fl" value="0">
 					<a href="javascript:;" class="add fr">+</a>
 					<a href="javascript:;" class="minus fr">-</a>
 				</div>
 			</div>
 			<div class="total">总价：<em>16.80元</em></div>
 			<div class="operate_btn">
-				<a href="javascript:;" class="buy_btn">立即购买</a>
+				<a href="/goods/immediatelyBuy/{{ goods.id }}" class="buy_btn">立即购买</a>
 				<a href="javascript:;" class="add_cart" id="add_cart">加入购物车</a>
+                <input type="hidden" name="goods_id" id="goods_id" value="{{ goods.id }}">
 			</div>
 		</div>
 	</div>

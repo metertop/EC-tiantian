@@ -1,10 +1,18 @@
 <component name="InspectionProjectProfileManager">
   <profile version="1.0">
     <option name="myName" value="Project Default" />
-    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="false" level="WARNING" enabled_by_default="false">
       <option name="ignoredIdentifiers">
         <list>
           <option value="tiantian.tiantian.cart.views.goods" />
+          <option value="tiantian.tiantian.cart.views.order" />
+          <option value="tiantian.tiantian.goods.admin.consumer" />
+          <option value="tiantian.tiantian.goods.admin.cart" />
+          <option value="tiantian.tiantian.goods.admin.order" />
+          <option value="tiantian.tiantian.cart.admin.goods" />
+          <option value="tiantian.tiantian.cart.admin.consumer" />
+          <option value="tiantian.tiantian.goods.admin.CartInfo" />
+          <option value="tiantian.tiantian.goods.admin.UserInfo" />
         </list>
       </option>
     </inspection_tool>
