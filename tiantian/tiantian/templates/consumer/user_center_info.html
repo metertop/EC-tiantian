@@ -4,6 +4,10 @@
 天天生鲜-用户中心-个人信息
 {% endblock %}
 
+{%block class1%}
+class="active"
+{%endblock%}
+
 {% block right_content %}
 	{# 此处填写用户中心页面中间右侧的信息 #}
 		<div class="right_content clearfix">
@@ -21,7 +25,7 @@
 					<ul class="goods_type_list clearfix">
 				{% for goods in goodslist %}
 				<li>
-					<a href="detail.html"><img src="images/goods/goods003.jpg"></a>
+					<a href="detail.html"><img src="/static/images/goods/goods003.jpg"></a>
 					<h4><a href="detail.html">{{goods.gtitle}}</a></h4>
 					<div class="operate">
 						<span class="prize">￥{{goods.gprice}}</span>

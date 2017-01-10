@@ -3,15 +3,23 @@
 	四级模板：
 { % endcomment % }
 
+
+{% block shoptype%}
+用户中心
+{% endblock%}
+
 {% block usercenter %}
 	{# 此处填写用户中心页面中间右侧的信息：个人信息/全部订单/收货地址 #}
 	<div class="main_con clearfix">
 		<div class="left_menu_con clearfix">
 			<h3>用户中心</h3>
 			<ul>
-				<li><a href="user_center_info.html">· 个人信息</a></li>
-				<li><a href="user_center_order.html" class="active">· 全部订单</a></li>
-				<li><a href="user_center_site.html">· 收货地址</a></li>
+				<li><a href="/consumer/user_center_info/" {%block class1%}
+				{%endblock%}>· 个人信息</a></li>
+				<li><a href="/order/user_center_order/" {%block class2%}
+				{%endblock%}>· 全部订单</a></li>
+				<li><a href="/consumer/user_center_site/" {%block class3%}
+				{%endblock%}>· 收货地址</a></li>
 			</ul>
 		</div>
 		<div class="right_content clearfix">
