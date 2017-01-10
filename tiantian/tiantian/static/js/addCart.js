@@ -53,11 +53,12 @@ $(function ()
         $('.goods_count').text($numText);
     });
 
-    // 立即购买点击事件
-    $('.buy_btn').click(function ()
-    {
+    // // 立即购买点击事件
+    // $('.buy_btn').click(function ()
+    // {
+    //
+    // });
 
-    });
 
     // 加入购物车点击事件
     $('.add_cart').click(function ()
@@ -66,5 +67,17 @@ $(function ()
         totalPrice = $price * $num;
         $total.text(totalPrice + " 元");
         $('.goods_count').text($num);
+        value = $('#goods_id').val();
+        $.post('/addCart/',{'num':$num,"value":value},function (data)
+        {
+            $('.goods_count').text($num);
+        });
     });
+
+    $('.add_goods').click(function ()
+    {
+        $goodsNum = $('.goods_count').text();
+        $('.goods_count').text(++$goodsNum);
+    });
+
 });

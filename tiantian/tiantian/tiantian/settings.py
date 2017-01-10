@@ -1,3 +1,4 @@
+#coding:utf-8
 """
 Django settings for tiantian project.
 
@@ -25,7 +26,7 @@ SECRET_KEY = 'ew+%l4coyj@au$_%6xm-ob9-a92=q687=69nn&(l=38u1j%!&h'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -41,6 +42,7 @@ INSTALLED_APPS = (
     'cart',
     'goods',
     'order',
+    'haystack',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -112,3 +114,14 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 MEDIA_ROOT = os.path.join(BASE_DIR,"static/media/")
+
+#中文搜索引擎
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.whoosh_cn_backend.WhooshEngine',
+        'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
+    }
+}
+
+#自动生成索引
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
