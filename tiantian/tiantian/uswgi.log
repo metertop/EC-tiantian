@@ -1,0 +1,275 @@
+*** Starting uWSGI 2.0.14 (64bit) on [Tue Jan 10 17:52:58 2017] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 8.0.0 (clang-800.0.42.1) on 03 January 2017 09:52:32
+os: Darwin-16.3.0 Darwin Kernel Version 16.3.0: Thu Nov 17 20:23:58 PST 2016; root:xnu-3789.31.2~1/RELEASE_X86_64
+nodename: lvhaidongdeMacBook-Pro.local
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /Users/lvhaidong/Desktop/EC-tiantian/tiantian/tiantian
+writing pidfile to uwsgi.pid
+detected binary path: /Users/lvhaidong/workspaces/env2/bin/uwsgi
+chdir() to /Users/lvhaidong/Desktop/EC-tiantian/tiantian/tiantian
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 256
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8000 fd 3
+Python version: 2.7.10 (default, Jul 30 2016, 19:40:32)  [GCC 4.2.1 Compatible Apple LLVM 8.0.0 (clang-800.0.34)]
+Python main interpreter initialized at 0x7fe775600840
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 415200 bytes (405 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x7fe775600840 pid: 8130 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 8130)
+spawned uWSGI worker 1 (pid: 8131, cores: 2)
+spawned uWSGI worker 2 (pid: 8132, cores: 2)
+spawned uWSGI worker 3 (pid: 8133, cores: 2)
+spawned uWSGI worker 4 (pid: 8134, cores: 2)
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+[pid: 8134|app: 0|req: 1/1] 127.0.0.1 () {40 vars in 685 bytes} [Tue Jan 10 10:22:32 2017] GET / => generated 74 bytes in 463 msecs (HTTP/1.1 404) 2 headers in 80 bytes (2 switches on core 1)
+[pid: 8134|app: 0|req: 2/2] 127.0.0.1 () {40 vars in 634 bytes} [Tue Jan 10 10:22:33 2017] GET /favicon.ico => generated 85 bytes in 2 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 8131)...
+Gracefully killing worker 2 (pid: 8132)...
+Gracefully killing worker 3 (pid: 8133)...
+Gracefully killing worker 4 (pid: 8134)...
+Tue Jan 10 10:38:11 2017 - worker 1 (pid: 8131) is taking too much time to die...NO MERCY !!!
+Tue Jan 10 10:38:11 2017 - worker 2 (pid: 8132) is taking too much time to die...NO MERCY !!!
+Tue Jan 10 10:38:11 2017 - worker 3 (pid: 8133) is taking too much time to die...NO MERCY !!!
+Tue Jan 10 10:38:11 2017 - worker 4 (pid: 8134) is taking too much time to die...NO MERCY !!!
+worker 4 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /Users/lvhaidong/Desktop/EC-tiantian/tiantian/tiantian
+closing all non-uwsgi socket fds > 2 (max_fd = 256)...
+found fd 3 mapped to socket 0 (127.0.0.1:8000)
+running /Users/lvhaidong/workspaces/env2/bin/uwsgi
+[uWSGI] getting INI configuration from uwsgi.ini
+*** Starting uWSGI 2.0.14 (64bit) on [Tue Jan 10 10:38:12 2017] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 8.0.0 (clang-800.0.42.1) on 03 January 2017 09:52:32
+os: Darwin-16.3.0 Darwin Kernel Version 16.3.0: Thu Nov 17 20:23:58 PST 2016; root:xnu-3789.31.2~1/RELEASE_X86_64
+nodename: lvhaidongdeMacBook-Pro.local
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /Users/lvhaidong/Desktop/EC-tiantian/tiantian/tiantian
+detected binary path: /Users/lvhaidong/workspaces/env2/bin/uwsgi
+chdir() to /Users/lvhaidong/Desktop/EC-tiantian/tiantian/tiantian
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 256
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited INET address 127.0.0.1:8000 fd 3
+Python version: 2.7.10 (default, Jul 30 2016, 19:40:32)  [GCC 4.2.1 Compatible Apple LLVM 8.0.0 (clang-800.0.34)]
+Python main interpreter initialized at 0x7fa7c640ab40
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 415200 bytes (405 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x7fa7c640ab40 pid: 8130 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 8130)
+spawned uWSGI worker 1 (pid: 12673, cores: 2)
+spawned uWSGI worker 2 (pid: 12674, cores: 2)
+spawned uWSGI worker 3 (pid: 12675, cores: 2)
+spawned uWSGI worker 4 (pid: 12676, cores: 2)
+[pid: 12675|app: 0|req: 1/1] 127.0.0.1 () {46 vars in 814 bytes} [Tue Jan 10 10:44:32 2017] GET / => generated 74 bytes in 388 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 12676|app: 0|req: 2/2] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:44:33 2017] GET / => generated 74 bytes in 49 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 12676|app: 0|req: 2/3] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:44:33 2017] GET / => generated 74 bytes in 220 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 12676|app: 0|req: 3/4] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:44:33 2017] GET / => generated 74 bytes in 2 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 12675|app: 0|req: 2/5] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:44:35 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 12676|app: 0|req: 4/6] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:44:35 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 12675|app: 0|req: 3/7] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:44:36 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 12676|app: 0|req: 5/8] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:44:36 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 12675|app: 0|req: 4/9] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:44:36 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 12676|app: 0|req: 6/10] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:44:41 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 12674|app: 0|req: 1/11] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:44:55 2017] GET / => generated 74 bytes in 188 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 12674|app: 0|req: 2/12] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:44:55 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 12676|app: 0|req: 7/13] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:44:55 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 12675|app: 0|req: 5/14] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:44:55 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 12674|app: 0|req: 3/15] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:44:56 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 12675|app: 0|req: 6/16] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:13 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 12675|app: 0|req: 7/17] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:13 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 12676|app: 0|req: 8/18] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:14 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 12675|app: 0|req: 8/19] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:14 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 12676|app: 0|req: 9/20] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:14 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 12676|app: 0|req: 10/21] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:14 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 12676|app: 0|req: 11/22] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:20 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (2 switches on core 0)
+[pid: 12676|app: 0|req: 12/23] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:20 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (2 switches on core 1)
+[pid: 12674|app: 0|req: 4/24] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:20 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (2 switches on core 1)
+[pid: 12674|app: 0|req: 5/25] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:20 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (2 switches on core 0)
+[pid: 12675|app: 0|req: 9/26] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:21 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (2 switches on core 0)
+[pid: 12675|app: 0|req: 10/27] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:21 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 12675|app: 0|req: 11/28] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:21 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (2 switches on core 0)
+[pid: 12676|app: 0|req: 13/29] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:21 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 12674|app: 0|req: 6/30] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:21 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 12676|app: 0|req: 14/31] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:22 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 12674|app: 0|req: 7/32] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:22 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 12675|app: 0|req: 12/33] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:22 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 12674|app: 0|req: 8/34] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:22 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 12674|app: 0|req: 9/35] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:22 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 12676|app: 0|req: 15/36] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:22 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 12676|app: 0|req: 16/37] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:23 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 12674|app: 0|req: 10/38] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:23 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 12676|app: 0|req: 17/39] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:23 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (2 switches on core 1)
+[pid: 12676|app: 0|req: 18/40] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:23 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 12675|app: 0|req: 13/41] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:23 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 12676|app: 0|req: 19/42] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:23 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 12675|app: 0|req: 14/43] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:24 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 12675|app: 0|req: 15/44] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:24 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 12674|app: 0|req: 11/45] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:24 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 12674|app: 0|req: 12/46] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:24 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 12676|app: 0|req: 20/47] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:24 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (2 switches on core 1)
+[pid: 12676|app: 0|req: 21/48] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:25 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (2 switches on core 0)
+[pid: 12674|app: 0|req: 13/49] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:25 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (2 switches on core 0)
+[pid: 12674|app: 0|req: 14/50] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:25 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (2 switches on core 1)
+[pid: 12675|app: 0|req: 16/51] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:26 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (2 switches on core 0)
+[pid: 12676|app: 0|req: 22/52] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:26 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 12676|app: 0|req: 23/53] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:26 2017] GET / => generated 74 bytes in 2 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 12676|app: 0|req: 24/54] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:45:39 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 12676|app: 0|req: 25/55] 127.0.0.1 () {40 vars in 692 bytes} [Tue Jan 10 10:45:56 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (2 switches on core 1)
+[pid: 12674|app: 0|req: 15/56] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:46:20 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (2 switches on core 1)
+[pid: 12674|app: 0|req: 16/57] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:46:20 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (2 switches on core 0)
+[pid: 12675|app: 0|req: 17/58] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:46:21 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 12676|app: 0|req: 26/59] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:46:21 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 12674|app: 0|req: 17/60] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:46:21 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (2 switches on core 0)
+[pid: 12676|app: 0|req: 27/61] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:46:21 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 12674|app: 0|req: 18/62] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:46:21 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 12676|app: 0|req: 28/63] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:46:22 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 12676|app: 0|req: 29/64] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:46:22 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 12676|app: 0|req: 30/65] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:46:22 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (2 switches on core 1)
+[pid: 12676|app: 0|req: 31/66] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:46:23 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 12673|app: 0|req: 1/67] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:46:23 2017] GET / => generated 74 bytes in 205 msecs (HTTP/1.1 404) 2 headers in 80 bytes (2 switches on core 0)
+[pid: 12676|app: 0|req: 32/68] 127.0.0.1 () {42 vars in 723 bytes} [Tue Jan 10 10:46:23 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+[pid: 12676|app: 0|req: 33/69] 127.0.0.1 () {42 vars in 825 bytes} [Tue Jan 10 10:52:29 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (2 switches on core 0)
+[pid: 12676|app: 0|req: 34/70] 127.0.0.1 () {42 vars in 779 bytes} [Tue Jan 10 10:52:29 2017] GET /favicon.ico => generated 85 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 12676|app: 0|req: 35/71] 127.0.0.1 () {44 vars in 856 bytes} [Tue Jan 10 10:52:34 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 12676|app: 0|req: 36/72] 127.0.0.1 () {42 vars in 849 bytes} [Tue Jan 10 10:52:42 2017] GET /goods/index/ => generated 7078 bytes in 100 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 1)
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+[pid: 12676|app: 0|req: 37/73] 127.0.0.1 () {42 vars in 825 bytes} [Tue Jan 10 10:54:53 2017] GET / => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 12676|app: 0|req: 38/74] 127.0.0.1 () {42 vars in 837 bytes} [Tue Jan 10 10:54:59 2017] GET /goods/ => generated 7078 bytes in 20 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 12676|app: 0|req: 39/75] 127.0.0.1 () {44 vars in 868 bytes} [Tue Jan 10 10:57:41 2017] GET /goods/ => generated 7078 bytes in 24 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 1)
+[pid: 12676|app: 0|req: 40/76] 127.0.0.1 () {44 vars in 868 bytes} [Tue Jan 10 10:57:42 2017] GET /goods/ => generated 7078 bytes in 20 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 12676|app: 0|req: 41/77] 127.0.0.1 () {44 vars in 868 bytes} [Tue Jan 10 10:57:42 2017] GET /goods/ => generated 7078 bytes in 19 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 1)
+[pid: 12676|app: 0|req: 42/78] 127.0.0.1 () {44 vars in 899 bytes} [Tue Jan 10 10:57:44 2017] GET /goods/list/10/1 => generated 0 bytes in 0 msecs (HTTP/1.1 301) 3 headers in 132 bytes (1 switches on core 0)
+[pid: 12674|app: 0|req: 19/79] 127.0.0.1 () {44 vars in 901 bytes} [Tue Jan 10 10:57:44 2017] GET /goods/list/10/1/ => generated 6810 bytes in 75 msecs (HTTP/1.1 200) 2 headers in 88 bytes (2 switches on core 1)
+[pid: 12676|app: 0|req: 43/80] 127.0.0.1 () {44 vars in 911 bytes} [Tue Jan 10 10:57:49 2017] GET /goods/list/10/1/ => generated 6810 bytes in 16 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 12676|app: 0|req: 44/81] 127.0.0.1 () {44 vars in 882 bytes} [Tue Jan 10 10:57:51 2017] GET /%2F => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 12676|app: 0|req: 45/82] 127.0.0.1 () {44 vars in 882 bytes} [Tue Jan 10 10:58:01 2017] GET /%2F => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 12676|app: 0|req: 46/83] 127.0.0.1 () {44 vars in 911 bytes} [Tue Jan 10 10:58:06 2017] GET /goods/list/10/1/ => generated 6810 bytes in 18 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 1)
+[pid: 12676|app: 0|req: 47/84] 127.0.0.1 () {44 vars in 909 bytes} [Tue Jan 10 10:58:09 2017] GET /goods/detail/16 => generated 0 bytes in 1 msecs (HTTP/1.1 301) 3 headers in 132 bytes (1 switches on core 0)
+[pid: 12676|app: 0|req: 48/85] 127.0.0.1 () {44 vars in 911 bytes} [Tue Jan 10 10:58:09 2017] GET /goods/detail/16/ => generated 5453 bytes in 17 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 1)
+[pid: 12676|app: 0|req: 49/86] 127.0.0.1 () {44 vars in 903 bytes} [Tue Jan 10 10:58:14 2017] GET /goods/login/ => generated 0 bytes in 0 msecs (HTTP/1.1 302) 3 headers in 119 bytes (1 switches on core 0)
+None
+[pid: 12674|app: 0|req: 20/87] 127.0.0.1 () {44 vars in 909 bytes} [Tue Jan 10 10:58:14 2017] GET /consumer/login/ => generated 2352 bytes in 4 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 1)
+[pid: 12676|app: 0|req: 50/88] 127.0.0.1 () {44 vars in 882 bytes} [Tue Jan 10 10:59:04 2017] GET /%2F => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 12676|app: 0|req: 51/89] 127.0.0.1 () {46 vars in 942 bytes} [Tue Jan 10 11:00:51 2017] GET /goods/list/10/1/ => generated 6810 bytes in 14 msecs (HTTP/1.1 200) 2 headers in 88 bytes (2 switches on core 1)
+[pid: 12676|app: 0|req: 52/90] 127.0.0.1 () {46 vars in 942 bytes} [Tue Jan 10 11:00:52 2017] GET /goods/list/10/1/ => generated 6810 bytes in 16 msecs (HTTP/1.1 200) 2 headers in 88 bytes (2 switches on core 0)
+[pid: 12676|app: 0|req: 53/91] 127.0.0.1 () {44 vars in 882 bytes} [Tue Jan 10 11:00:52 2017] GET /%2F => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 12676|app: 0|req: 54/92] 127.0.0.1 () {42 vars in 837 bytes} [Tue Jan 10 11:01:03 2017] GET /goods/ => generated 7078 bytes in 23 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 12676|app: 0|req: 55/93] 127.0.0.1 () {44 vars in 872 bytes} [Tue Jan 10 11:01:04 2017] GET /%2F => generated 74 bytes in 1 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 12673|app: 0|req: 2/94] 127.0.0.1 () {44 vars in 868 bytes} [Tue Jan 10 11:01:32 2017] GET /goods/ => generated 7087 bytes in 46 msecs (HTTP/1.1 200) 3 headers in 102 bytes (2 switches on core 0)
+[pid: 12676|app: 0|req: 56/95] 127.0.0.1 () {44 vars in 893 bytes} [Tue Jan 10 11:01:33 2017] GET /goods/index/ => generated 7087 bytes in 23 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 1)
+[pid: 12676|app: 0|req: 57/96] 127.0.0.1 () {44 vars in 899 bytes} [Tue Jan 10 11:01:35 2017] GET /goods/index/ => generated 7087 bytes in 22 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 12676|app: 0|req: 58/97] 127.0.0.1 () {44 vars in 899 bytes} [Tue Jan 10 11:01:35 2017] GET /goods/index/ => generated 7087 bytes in 30 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 1)
+[pid: 12676|app: 0|req: 59/98] 127.0.0.1 () {44 vars in 899 bytes} [Tue Jan 10 11:01:36 2017] GET /goods/index/ => generated 7087 bytes in 19 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 12676|app: 0|req: 60/99] 127.0.0.1 () {44 vars in 899 bytes} [Tue Jan 10 11:01:36 2017] GET /goods/index/ => generated 7087 bytes in 18 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 1)
+[pid: 12676|app: 0|req: 61/100] 127.0.0.1 () {44 vars in 899 bytes} [Tue Jan 10 11:01:36 2017] GET /goods/index/ => generated 7087 bytes in 21 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 12673|app: 0|req: 3/101] 127.0.0.1 () {44 vars in 899 bytes} [Tue Jan 10 11:01:37 2017] GET /goods/index/ => generated 7087 bytes in 22 msecs (HTTP/1.1 200) 3 headers in 102 bytes (2 switches on core 1)
+[pid: 12676|app: 0|req: 62/102] 127.0.0.1 () {44 vars in 907 bytes} [Tue Jan 10 11:01:38 2017] GET /goods/list/10/1/ => generated 6819 bytes in 14 msecs (HTTP/1.1 200) 2 headers in 88 bytes (2 switches on core 0)
+[pid: 12676|app: 0|req: 63/103] 127.0.0.1 () {44 vars in 903 bytes} [Tue Jan 10 11:01:39 2017] GET /goods/index/ => generated 7087 bytes in 21 msecs (HTTP/1.1 200) 3 headers in 102 bytes (2 switches on core 1)
+[pid: 12676|app: 0|req: 64/104] 127.0.0.1 () {44 vars in 907 bytes} [Tue Jan 10 11:01:40 2017] GET /goods/list/10/1/ => generated 6819 bytes in 18 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 12676|app: 0|req: 65/105] 127.0.0.1 () {44 vars in 903 bytes} [Tue Jan 10 11:01:42 2017] GET /goods/index/ => generated 7087 bytes in 19 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 1)
+[pid: 12675|app: 0|req: 18/106] 127.0.0.1 () {46 vars in 934 bytes} [Tue Jan 10 11:03:12 2017] GET /goods/index/ => generated 7087 bytes in 37 msecs (HTTP/1.1 200) 3 headers in 102 bytes (2 switches on core 0)
+[pid: 12676|app: 0|req: 66/107] 127.0.0.1 () {46 vars in 934 bytes} [Tue Jan 10 11:03:12 2017] GET /goods/index/ => generated 7087 bytes in 20 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 1)
+[pid: 12674|app: 0|req: 21/108] 127.0.0.1 () {44 vars in 907 bytes} [Tue Jan 10 11:03:13 2017] GET /goods/list/10/1/ => generated 6819 bytes in 17 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 1)
+[pid: 12676|app: 0|req: 67/109] 127.0.0.1 () {44 vars in 903 bytes} [Tue Jan 10 11:03:15 2017] GET /goods/index/ => generated 7087 bytes in 26 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 1)
+[pid: 12676|app: 0|req: 68/110] 127.0.0.1 () {44 vars in 907 bytes} [Tue Jan 10 11:03:18 2017] GET /goods/list/10/1/ => generated 6819 bytes in 13 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 12676|app: 0|req: 69/111] 127.0.0.1 () {44 vars in 909 bytes} [Tue Jan 10 11:03:20 2017] GET /goods/list/16/1 => generated 0 bytes in 0 msecs (HTTP/1.1 301) 3 headers in 132 bytes (1 switches on core 1)
+[pid: 12675|app: 0|req: 19/112] 127.0.0.1 () {44 vars in 911 bytes} [Tue Jan 10 11:03:20 2017] GET /goods/list/16/1/ => generated 6110 bytes in 19 msecs (HTTP/1.1 200) 2 headers in 88 bytes (2 switches on core 0)
+[pid: 12676|app: 0|req: 70/113] 127.0.0.1 () {44 vars in 903 bytes} [Tue Jan 10 11:03:22 2017] GET /goods/index/ => generated 7087 bytes in 23 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 1)
+[pid: 12676|app: 0|req: 71/114] 127.0.0.1 () {44 vars in 905 bytes} [Tue Jan 10 11:03:23 2017] GET /goods/detail/15 => generated 0 bytes in 2 msecs (HTTP/1.1 301) 3 headers in 132 bytes (1 switches on core 0)
+[pid: 12676|app: 0|req: 72/115] 127.0.0.1 () {44 vars in 907 bytes} [Tue Jan 10 11:03:23 2017] GET /goods/detail/15/ => generated 6067 bytes in 10 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 1)
+[pid: 12676|app: 0|req: 73/116] 127.0.0.1 () {44 vars in 925 bytes} [Tue Jan 10 11:03:26 2017] GET /goods/immediatelyBuy/15 => generated 0 bytes in 0 msecs (HTTP/1.1 301) 3 headers in 140 bytes (1 switches on core 0)
+[pid: 12676|app: 0|req: 74/117] 127.0.0.1 () {44 vars in 927 bytes} [Tue Jan 10 11:03:26 2017] GET /goods/immediatelyBuy/15/ => generated 5016 bytes in 8 msecs (HTTP/1.1 200) 2 headers in 88 bytes (2 switches on core 1)
+[pid: 12676|app: 0|req: 75/118] 127.0.0.1 () {50 vars in 1003 bytes} [Tue Jan 10 11:03:43 2017] POST /addCart/ => generated 82 bytes in 2 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 12676|app: 0|req: 76/119] 127.0.0.1 () {50 vars in 1003 bytes} [Tue Jan 10 11:03:45 2017] POST /addCart/ => generated 82 bytes in 2 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 12676|app: 0|req: 77/120] 127.0.0.1 () {44 vars in 934 bytes} [Tue Jan 10 11:03:51 2017] GET /search/?q=%E8%91%A1%E8%90%84 => generated 233 bytes in 89 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 12676|app: 0|req: 78/121] 127.0.0.1 () {44 vars in 923 bytes} [Tue Jan 10 11:03:53 2017] GET /goods/detail/16/ => generated 5462 bytes in 14 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 1)
+[pid: 12676|app: 0|req: 79/122] 127.0.0.1 () {46 vars in 938 bytes} [Tue Jan 10 11:09:11 2017] GET /goods/detail/15/ => generated 6067 bytes in 19 msecs (HTTP/1.1 200) 3 headers in 102 bytes (2 switches on core 0)
+[pid: 12676|app: 0|req: 80/123] 127.0.0.1 () {46 vars in 938 bytes} [Tue Jan 10 11:09:12 2017] GET /goods/detail/15/ => generated 6067 bytes in 10 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 1)
+[pid: 12676|app: 0|req: 81/124] 127.0.0.1 () {44 vars in 903 bytes} [Tue Jan 10 11:09:13 2017] GET /goods/index/ => generated 7087 bytes in 22 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 12675|app: 0|req: 20/125] 127.0.0.1 () {44 vars in 907 bytes} [Tue Jan 10 11:09:16 2017] GET /goods/list/10/1/ => generated 6819 bytes in 49 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 1)
+[pid: 12676|app: 0|req: 82/126] 127.0.0.1 () {44 vars in 909 bytes} [Tue Jan 10 11:09:18 2017] GET /goods/detail/17 => generated 0 bytes in 1 msecs (HTTP/1.1 301) 3 headers in 132 bytes (1 switches on core 0)
+[pid: 12674|app: 0|req: 22/127] 127.0.0.1 () {44 vars in 911 bytes} [Tue Jan 10 11:09:18 2017] GET /goods/detail/17/ => generated 5463 bytes in 12 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 12675|app: 0|req: 21/128] 127.0.0.1 () {44 vars in 911 bytes} [Tue Jan 10 11:09:23 2017] GET /goods/detail/16/ => generated 5462 bytes in 11 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 1)
+[pid: 12676|app: 0|req: 83/129] 127.0.0.1 () {44 vars in 911 bytes} [Tue Jan 10 11:09:26 2017] GET /goods/detail/17/ => generated 5463 bytes in 12 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 1)
+[pid: 12673|app: 0|req: 4/130] 127.0.0.1 () {44 vars in 911 bytes} [Tue Jan 10 11:09:29 2017] GET /goods/list/10/1/ => generated 6819 bytes in 37 msecs (HTTP/1.1 200) 2 headers in 88 bytes (2 switches on core 0)
+[pid: 12674|app: 0|req: 23/131] 127.0.0.1 () {44 vars in 911 bytes} [Tue Jan 10 11:09:32 2017] GET /goods/list/10/1/ => generated 6819 bytes in 22 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 1)
+[pid: 12673|app: 0|req: 5/132] 127.0.0.1 () {44 vars in 911 bytes} [Tue Jan 10 11:09:33 2017] GET /goods/list/16/1/ => generated 6110 bytes in 10 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 1)
+[pid: 12676|app: 0|req: 84/133] 127.0.0.1 () {44 vars in 909 bytes} [Tue Jan 10 11:09:34 2017] GET /goods/detail/21 => generated 0 bytes in 0 msecs (HTTP/1.1 301) 3 headers in 132 bytes (1 switches on core 1)
+[pid: 12675|app: 0|req: 22/134] 127.0.0.1 () {44 vars in 911 bytes} [Tue Jan 10 11:09:34 2017] GET /goods/detail/21/ => generated 5309 bytes in 11 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+SIGINT/SIGQUIT received...killing workers...
+worker 4 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 1 buried after 1 seconds
+goodbye to uWSGI.

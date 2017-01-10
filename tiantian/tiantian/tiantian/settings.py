@@ -24,13 +24,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ew+%l4coyj@au$_%6xm-ob9-a92=q687=69nn&(l=38u1j%!&h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*',]
 
 
 # Application definition
-
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -114,6 +113,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 MEDIA_ROOT = os.path.join(BASE_DIR,"static/media/")
+STATIC_ROOT='/var/www/ECProject/static/'
 
 #中文搜索引擎
 HAYSTACK_CONNECTIONS = {
