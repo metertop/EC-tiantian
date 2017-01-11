@@ -1,11 +1,12 @@
 {%extends 'base_nocart.html'%}
 {% block block_placeOrder%}
 {{ pageName }}
-	<title>天天生鲜-提交订单</title>
+	
 	<link rel="stylesheet" type="text/css" href="/static/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/main.css">
 	
 	<script type="text/javascript">
+			// 小计金额
 			$(function sub_total(){
 				
 				var oinfo.goods.price = $('.col05');
@@ -15,30 +16,37 @@
 				
 			});
 
-			
-			$(fuction total_price(){
-					var orderdetailsinfo.goods.price = $('.total_goods_count');
-					var 10 = $('.transit');
-					var tprices = $('.total_pay')
-					tprices = (orderdetailsinfo.goods.price)+10
+			// 总金额
+			$(function total_amount(){
 
-
-<<<<<<< HEAD
+				var subtotal = $('.col07');
+				var totalAmount = $('.total_goods_count');
+				totalAmount += subtotal
 			});
 
+			// 实付款金额
+			$(function total_price(){
+					var totalAmount = $('.total_goods_count');
+					var 10 = $('.transit');
+					var ototal = $('.total_pay');
+					ototal = (totalAmount)+10
 
+			});
 
+			// 判断如果点击提交订单，即支付状态为已支付
+			$('#order_btn').click(function(){
+				?????
+				var OrderInfo.state == True;
 
+			});
 	</script>
 	
-=======
 
->>>>>>> d7a39426699b8348949684291066446fcf3af2ca
 	<h3 class="common_title">确认收货地址</h3>
 	<div class="common_list_con clearfix">
 		<dl>
 			<dt>寄送到：</dt>
-			<dd><input type="radio" name="" checked="">{{address}}&nbsp;&nbsp;&nbsp;&nbsp;{{name}}&nbsp;&nbsp;&nbsp;&nbsp;{{tel}}</dd>
+			<dd><input type="radio" name="" checked="">{{address}}&nbsp;&nbsp;（{{name}}&nbsp;收）&nbsp;&nbsp;{{tel}}</dd>
 		</dl>
 		<a href="user_center_site.html" class="edit_site">编辑收货地址</a>
 	</div>
@@ -67,7 +75,6 @@
 			<li class="col04">数量</li>
 			<li class="col05">小计</li>		
 		</ul>
-		
 {% for odinfo in orderdetailsinfo %}
 		<ul class="goods_list_td clearfix">
 			<li class="col01">1</li>			
@@ -78,26 +85,23 @@
 			<li class="col06">{{oinfo.goods.count}}</li>
 			<li class="col07">{{subtotal}}元</li>	
 		</ul>
-<<<<<<< HEAD
-{% endfor %}
-=======
-{%endfor %}
->>>>>>> d7a39426699b8348949684291066446fcf3af2ca
 	</div>
+{%endfor %}	
 
 	<h3 class="common_title">总金额结算</h3>
 	<div class="common_list_con clearfix">
 		<div class="settle_con">
-			<div class="total_goods_count">共<em>{{orderdetailsinfo.goods.count}}</em>件商品，总金额<b>{{orderdetailsinfo.goods.price}}元</b></div>
+			<div class="total_goods_count">共<em>{{CartInfo.count}}</em>件商品，总金额<b>{{totalAmount}}元</b></div>
 			<div class="transit">运费：<b>10元</b></div>
-			<div class="total_pay">实付款：<b>{{tprices}}元</b></div>
+			<div class="total_pay">实付款：<b>{{ototal}}元</b></div>
 		</div>
 	</div>
+
 
 	<div class="order_submit clearfix">
 		<a href="javascript:;" id="order_btn">提交订单</a>
 	</div>	
-	
+
 	
 
 	<div class="popup_con">

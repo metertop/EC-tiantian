@@ -148,8 +148,8 @@ def user_center_info(request):
 	context = {
 				'name':user_list[0].uname,
 				'tel':user_list[0].utel,
-				'address':user_list[0].address
-				'latest_goods_list':latest_goods_list
+				'address':user_list[0].address,
+				'latest_goods_list':latest_goods_list,
 				}
 	return render(request,'consumer/user_center_info.html',context)
 
