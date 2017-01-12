@@ -145,13 +145,18 @@ def loginHandle(request):
 def loginout(request):
 	del request.session['id'] 
 	del request.session['uname']
-	return redirect('/consumer/index/')
+	return redirect('/goods/index/')
 
 #跳转到用户中心个人信息页面
 def user_center_info(request):
 	get_id = request.session.get('id')
-	user_list = UserInfo.objects.filter(id=get_id)    
-	latest_goods_list_id = request.session.get('latest_goods_list')[0:5]
+	user_list = UserInfo.objects.filter(id=get_id)
+	list1 =  request.session.get('latest_goods_list')
+	#转换成集合去重
+	set1 = set(list1) 
+	list2 = list(set1)  
+	latest_goods_list_id = list2[0:5]
+	print(latest_goods_list_id)
 	latest_goods_list = []
 	for goods_id in latest_goods_list_id:
 		goods = GoodsInfo.objects.get(id=goods_id)
@@ -168,7 +173,6 @@ def user_center_info(request):
 def user_center_site(request):
 	get_id = request.session.get('id')
 	addrList = RecInfo.objects.filter(userNum_id=get_id)
-	print("*****************")
 	for a in addrList:
 		print(a.name)
 		print(a.address)
