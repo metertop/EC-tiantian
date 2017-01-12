@@ -46,11 +46,24 @@ $(function ()
 
     // 当用户在输入框中输入一个值,当失去焦点时进行判断
     $('.num_show').blur(function () {
+
+        // 匹配不能以0开头的正整数
+        var reg = /^[1-9]\d*$/
         $numText = $('.num_show').val();
-        $('.num_show').val($numText);
-        totalPrice = $price * $numText
-        $total.text(totalPrice + " 元");
-        $('.goods_count').text($numText);
+        if(!reg.test($numText))
+        {
+            alert("输入不合法");
+            $('.num_show').val(0);
+            $total.text(0 + " 元");
+        }
+        else
+        {
+            $('.num_show').val($numText);
+            totalPrice = $price * $numText
+            $total.text(totalPrice + " 元");
+            $('.goods_count').text($numText);
+        }
+        
     });
 
     // // 立即购买点击事件

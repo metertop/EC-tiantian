@@ -21,12 +21,5 @@ class OrderDetailInfo(models.Model):
 	count = models.IntegerField(max_length=None)
 	price = models.DecimalField(max_digits=20,decimal_places=2)
 	tprice = models.ForeignKey('cart.CartInfo')
-	
-
-
-
-
-
-
 
 	

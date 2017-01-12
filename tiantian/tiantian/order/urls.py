@@ -6,6 +6,4 @@ urlpatterns=[
 	url(r'^placeOrder$',views.placeOrder),
 	url(r'^userCenterOrder$',views.userCenterOrder),
 	url(r'^pageTab$',views.pageTab)
-	
-
 ]
