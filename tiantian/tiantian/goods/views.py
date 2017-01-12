@@ -54,7 +54,6 @@ def detail(request,id):
 
 # 列表页
 def list(request,id,pIndex):
-	print id
 	list = GoodsInfo.objects.filter(gtype_id=id)
 	list1 = GoodsInfo.objects.filter(gtype_id=id,gnews='news')
 	print list

@@ -190,3 +190,11 @@ invalid request block size: 21573 (max 4096)...skip
 [pid: 33776|app: 0|req: 74/193] 127.0.0.1 () {46 vars in 942 bytes} [Thu Jan 12 10:59:22 2017] GET /goods/list/16/1/ => generated 4366 bytes in 11 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
 {'list': [<QuerySet [<GoodsInfo: 草莓>, <GoodsInfo: 葡萄>, <GoodsInfo: 柠檬>, <GoodsInfo: 奇异果>]>, <QuerySet [<GoodsInfo: 青岛野生海捕大清虾>, <GoodsInfo: 扇贝>, <GoodsInfo: 冷冻秋刀鱼>, <GoodsInfo: 基围虾>]>], 'cartNum': 0}
 [pid: 33776|app: 0|req: 75/194] 127.0.0.1 () {44 vars in 903 bytes} [Thu Jan 12 10:59:23 2017] GET /goods/index/ => generated 7151 bytes in 20 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 1)
+{'list': [<QuerySet [<GoodsInfo: 草莓>, <GoodsInfo: 葡萄>, <GoodsInfo: 柠檬>, <GoodsInfo: 奇异果>]>, <QuerySet [<GoodsInfo: 青岛野生海捕大清虾>, <GoodsInfo: 扇贝>, <GoodsInfo: 冷冻秋刀鱼>, <GoodsInfo: 基围虾>]>], 'cartNum': 0}
+[pid: 33773|app: 0|req: 49/195] 127.0.0.1 () {46 vars in 934 bytes} [Thu Jan 12 11:01:51 2017] GET /goods/index/ => generated 7151 bytes in 24 msecs (HTTP/1.1 200) 3 headers in 102 bytes (1 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+worker 4 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
