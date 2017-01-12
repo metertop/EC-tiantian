@@ -1,9 +1,4 @@
-{% extends "base_topAndBottom.html" %}
-{%block js_cart%}
-{% load staticfiles %}
-<<<<<<< HEAD
-<script>
-    $(function(){
+ $(function(){
         var total = 0;
         var count = 0;
 
@@ -25,9 +20,6 @@
             // 在每个ul中添加li小计
             $(this).children(".col07").text(String(subtotal)+'元');
             total_count(total, count);
-
-                <!--单选框操作    -->
-            $(this).children("li.col01").children().click(function(){
 
             // 单选框点击操作,如果checked为true（false），变为false（true），总数count及总价total跟着变化
             $(this).children(".col01").children().click(function(){
@@ -108,14 +100,10 @@
                 total_count(total_1, count_1)
             }
             else{
-                $(":checkbox").prop("checked",false)
-                $('ul.settlements').find('em').text(0); <!--添加总计金额-->
-                $('ul.settlements').find('b').text(0);  <!--添加末尾总数-->
-                $('.total_count').find('em').text(0);
                 $(":checkbox").prop("checked",false);
                 count = 0;
                 total = 0;
-                total_count(total, count)
+                    total_count(total, count)
             }
         });
 
@@ -139,6 +127,7 @@
             $.ajax({
                 url: '/cart/to_order/',
                 data: {
+                    "cart_id":cart_id,
                     "ototal":ototal,
                     "goods": goods,
                     "count":countnum,
@@ -155,59 +144,4 @@
                 }
             });
         });
-    })
-</script>
-
-=======
-<script src="/static/js/cart.js"></script>
->>>>>>> 9ee79a7bc7deda2e135c38374f4039aaa95ed96a
-{%endblock%}
-{% block middle %}
-{%load staticfiles%}
-    <div class="search_bar clearfix">
-        <a href="index.html" class="logo fl"><img src="{% static 'images/logo.png' %}"></a>
-        <div class="sub_page_name fl">|&nbsp;&nbsp;&nbsp;&nbsp;购物车</div>
-        <div class="search_con fr">
-            <input type="text" class="input_text fl" name="" placeholder="搜索商品">
-            <input type="button" class="input_btn fr" name="" value="搜索">
-        </div>
-    </div>
-
-    <div class="total_count">全部商品<em>0</em>件</div>
-
-    <ul class="cart_list_th clearfix">
-        <li class="col01">商品名称</li>
-        <li class="col02">商品单位</li>
-        <li class="col03">商品价格</li>
-        <li class="col04">数量</li>
-        <li class="col05">小计</li>
-        <li class="col06">操作</li>
-    </ul>
-{%for cart in cartlist %}
-    <ul class="cart_list_td clearfix">
-        <li class="col01"><input type="checkbox" name=""  checked ></li>
-        <li class="col02"><img src="{% static 'images/goods/goods012.jpg' %}"></li>
-        <li class="col03" id="{{cart.id}}">{{cart.goods.gtitle}}<br></li>
-        <li class="col04">500g</li>
-        <li class="col05">{{cart.goods.gprice}}元</li>
-        <li class="col06">
-            <div class="num_add">
-                <a href="javascript:;" class="add fl">+</a>
-                <input type="text" class="num_show fl" value="{{cart.count}}">
-                <a href="javascript:;" class="minus fl">-</a>
-            </div>
-        </li>
-
-
-        <li class="col07">0</li>
-        <li class="col08"><a href="javascript:;">删除</a></li>
-    </ul>
-{%endfor%}
-
-    <ul class="settlements">
-        <li class="col01"><input id="chkall" type="checkbox" name=""  checked ></li>
-        <li class="col02">全选</li>
-        <li class="col03">合计(不含运费)：<span>¥</span><em>0</em><br>共计<b>0</b>件商品</li>
-        <li class="col04"><a href="javascript:;">去结算</a></li>
-    </ul>
-{% endblock middle %}
+ });

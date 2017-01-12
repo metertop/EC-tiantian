@@ -20,7 +20,7 @@ def login(request):
 def register(request):
 		return render(request,"consumer/register.html")
 
-#注册检查用户名是否存在
+#注册:检查用户名是否存在
 @csrf_exempt
 def checkReName(request):
 	namehad = request.POST['uname']
@@ -32,6 +32,17 @@ def checkReName(request):
 		checkResult = 0
 	return JsonResponse({'checkResult':checkResult})
 
+#注册:检查邮箱是否存在
+@csrf_exempt
+def checkReEmail(request):
+	emailhad = request.POST['uemail']
+	#到数据库中查是否有该用户，有则返回给前端触发事件值1
+	nameList = UserInfo.objects.filter(uemail=emailhad)
+	if len(nameList) == 1:
+		checkResult = 1
+	else:
+		checkResult = 0
+	return JsonResponse({'checkResult':checkResult})
 #注册数据处理
 def registerHandle(request):
 	if request.method == 'POST':
@@ -65,7 +76,7 @@ def registerHandle(request):
 					u.uemail=uemail
 					u.upwd=upwd
 					u.save()
-					return redirect("/goods/index/")
+					return redirect("/consumer/login/")
 
 		else:
 			return redirect("/consumer/register")
@@ -110,17 +121,17 @@ def loginHandle(request):
 				flag = request.POST.get('isrember', default='')
 				#勾选记住用户名
 				if flag == "on":
-					response = HttpResponseRedirect("/consumer/user_center_info/")
+					response = HttpResponseRedirect("/goods/index/")
 					print(uname)
 					response.set_cookie('remberName', uname,3600)
 					return response
 				else:
-					response = HttpResponseRedirect("/consumer/user_center_info/")
+					response = HttpResponseRedirect("/goods/index/")
 					#清理cookie里保存remberName
 					response.delete_cookie('remberName')
 					return response
 
-				return redirect("/goods/")
+				#return redirect("/goods/")
 			
 			else:
 				# 密码错误!
@@ -134,13 +145,18 @@ def loginHandle(request):
 def loginout(request):
 	del request.session['id'] 
 	del request.session['uname']
-	return redirect('/consumer/index/')
+	return redirect('/goods/index/')
 
 #跳转到用户中心个人信息页面
 def user_center_info(request):
 	get_id = request.session.get('id')
-	user_list = UserInfo.objects.filter(id=get_id)    
-	latest_goods_list_id = request.session.get('latest_goods_list')[0:5]
+	user_list = UserInfo.objects.filter(id=get_id)
+	list1 =  request.session.get('latest_goods_list')
+	#转换成集合去重
+	set1 = set(list1) 
+	list2 = list(set1)  
+	latest_goods_list_id = list2[0:5]
+	print(latest_goods_list_id)
 	latest_goods_list = []
 	for goods_id in latest_goods_list_id:
 		goods = GoodsInfo.objects.get(id=goods_id)
@@ -157,7 +173,6 @@ def user_center_info(request):
 def user_center_site(request):
 	get_id = request.session.get('id')
 	addrList = RecInfo.objects.filter(userNum_id=get_id)
-	print("*****************")
 	for a in addrList:
 		print(a.name)
 		print(a.address)

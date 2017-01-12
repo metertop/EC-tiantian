@@ -21,6 +21,20 @@ $(function(){
 		       })
 		check_user_name();
 	});
+	$('#email').blur(function() {
+		var emailhad = $("#email").val();
+		$.post('/consumer/checkReEmail/', {'uemail':emailhad}, 
+		       function(list)
+			   {
+		       	if(list.checkResult == '1')
+		       	{
+		       		$("#email").next().html('该邮箱已被注册！');
+		       		$("#email").next().show();
+		       		error_email = true;
+		       	}
+		       })
+		check_email();
+	});
 
 	//<script type="text/javascript">
 	// $(function(){
@@ -47,25 +61,7 @@ $(function(){
 		       	else{$(".pass_input").next().hide();}
 
 			})
-			$('.input_submit').click(function(){
-				var uname = $(".name_input").val();
-				var upwd = $(".pass_input").val();
-				$.post('/consumer/loginHandle/', {'uname':uname,'upwd':upwd}, 
-		       function(list){
-		       	if(list.checkRight == '0')
-		       	{
-		       		$(".name_input").next().html('用户名或密码错误!');
-		       		$(".name_input").next().show();
-		       		$(".pass_input").next().html('用户名或密码错误!');
-		       		$(".pass_input").next().show();
-		       	}
-		       	// else{$(".name_input").next().hide();$(".pass_input").next().hide();}
 
-		       })
-
-		       })
-			
-	// })
 
 	$('#pwd').blur(function() {
 		check_pwd();
