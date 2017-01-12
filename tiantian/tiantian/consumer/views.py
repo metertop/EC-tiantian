@@ -20,7 +20,7 @@ def login(request):
 def register(request):
 		return render(request,"consumer/register.html")
 
-#注册检查用户名是否存在
+#注册:检查用户名是否存在
 @csrf_exempt
 def checkReName(request):
 	namehad = request.POST['uname']
@@ -32,6 +32,17 @@ def checkReName(request):
 		checkResult = 0
 	return JsonResponse({'checkResult':checkResult})
 
+#注册:检查邮箱是否存在
+@csrf_exempt
+def checkReEmail(request):
+	emailhad = request.POST['uemail']
+	#到数据库中查是否有该用户，有则返回给前端触发事件值1
+	nameList = UserInfo.objects.filter(uemail=emailhad)
+	if len(nameList) == 1:
+		checkResult = 1
+	else:
+		checkResult = 0
+	return JsonResponse({'checkResult':checkResult})
 #注册数据处理
 def registerHandle(request):
 	if request.method == 'POST':
@@ -65,7 +76,7 @@ def registerHandle(request):
 					u.uemail=uemail
 					u.upwd=upwd
 					u.save()
-					return redirect("/goods/index/")
+					return redirect("/consumer/login/")
 
 		else:
 			return redirect("/consumer/register")
@@ -110,17 +121,17 @@ def loginHandle(request):
 				flag = request.POST.get('isrember', default='')
 				#勾选记住用户名
 				if flag == "on":
-					response = HttpResponseRedirect("/consumer/user_center_info/")
+					response = HttpResponseRedirect("/goods/index/")
 					print(uname)
 					response.set_cookie('remberName', uname,3600)
 					return response
 				else:
-					response = HttpResponseRedirect("/consumer/user_center_info/")
+					response = HttpResponseRedirect("/goods/index/")
 					#清理cookie里保存remberName
 					response.delete_cookie('remberName')
 					return response
 
-				return redirect("/goods/")
+				#return redirect("/goods/")
 			
 			else:
 				# 密码错误!
@@ -149,11 +160,7 @@ def user_center_info(request):
 				'name':user_list[0].uname,
 				'tel':user_list[0].utel,
 				'address':user_list[0].address,
-<<<<<<< HEAD
 				'latest_goods_list':latest_goods_list
-=======
-				'latest_goods_list':latest_goods_list,
->>>>>>> 44aabf271f60bb440ebadf54e6e9c8e1be169d46
 				}
 	return render(request,'consumer/user_center_info.html',context)
 
