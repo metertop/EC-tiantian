@@ -25,13 +25,8 @@
             $(this).children(".col07").text(String(subtotal)+'元');
             total_count(total, count);
 
-<<<<<<< HEAD
-                <!--单选框操作    -->
-            $(this).children("li.col01").children().click(function(){
-=======
             // 单选框点击操作,如果checked为true（false），变为false（true），总数count及总价total跟着变化
             $(this).children(".col01").children().click(function(){
->>>>>>> 94d66d135b536d19b3b87568b911fa7e50e6312c
                 if ($(this).is(":checked")) {
                     $(this).prop("checked",true)
                     count += num
@@ -109,17 +104,10 @@
                 total_count(total_1, count_1)
             }
             else{
-<<<<<<< HEAD
-                $(":checkbox").prop("checked",false)
-                $('ul.settlements').find('em').text(0); <!--添加总计金额-->
-                $('ul.settlements').find('b').text(0);  <!--添加末尾总数-->
-                $('.total_count').find('em').text(0);
-=======
                 $(":checkbox").prop("checked",false);
                 count = 0;
                 total = 0;
                     total_count(total, count)
->>>>>>> 94d66d135b536d19b3b87568b911fa7e50e6312c
             }
         });
 
@@ -143,6 +131,7 @@
             $.ajax({
                 url: '/cart/to_order/',
                 data: {
+                    "cart_id":cart_id.
                     "ototal":ototal,
                     "goods": goods,
                     "count":countnum,
@@ -165,7 +154,7 @@
 {% block middle %}
 {%load staticfiles%}
     <div class="search_bar clearfix">
-        <a href="{% url 'goods:index'%}" class="logo fl"><img src="{% static 'images/logo.png' %}"></a>
+        <a href="index.html" class="logo fl"><img src="{% static 'images/logo.png' %}"></a>
         <div class="sub_page_name fl">|&nbsp;&nbsp;&nbsp;&nbsp;购物车</div>
         <div class="search_con fr">
             <input type="text" class="input_text fl" name="" placeholder="搜索商品">
@@ -183,34 +172,13 @@
         <li class="col05">小计</li>
         <li class="col06">操作</li>
     </ul>
-{#{%for cart in cartlist %}#}
-{#    <ul class="cart_list_td clearfix">#}
-{#        <li class="col01"><input type="checkbox" name=""  checked ></li>#}
-{#        <li class="col02"><img src="/static/media/{{ goods.gimgAdd }}"></li>#}
-{#        <li class="col03" id="{{cart.id}}">{{cart.goods.gtitle}}<br></li>#}
-{#        <li class="col04">500g</li>#}
-{#        <li class="col05">{{cart.goods.gprice}}元</li>#}
-{#        <li class="col06">#}
-{#            <div class="num_add">#}
-{#                <a href="javascript:;" class="add fl">+</a>#}
-{#                <input type="text" class="num_show fl" value="{{cart.count}}">#}
-{#                <a href="javascript:;" class="minus fl">-</a>#}
-{#            </div>#}
-{#        </li>#}
-{#        <li class="col07">0</li>#}
-{#        <li class="col08"><a href="javascript:;">删除</a></li>#}
-{##}
-{#    </ul>#}
-{#{%endfor%}#}
-
-    {% for goods in goodsList %}
+{%for cart in cartlist %}
     <ul class="cart_list_td clearfix">
-
         <li class="col01"><input type="checkbox" name=""  checked ></li>
-        <li class="col02"><img src="/static/media/{{ goods.gimgAdd }}"></li>
-        <li class="col03" id="{{cart.id}}">{{goods.gtitle}}<br></li>
+        <li class="col02"><img src="{% static 'images/goods/goods012.jpg' %}"></li>
+        <li class="col03" id="{{cart.id}}">{{cart.goods.gtitle}}<br></li>
         <li class="col04">500g</li>
-        <li class="col05">{{goods.gprice}}元</li>
+        <li class="col05">{{cart.goods.gprice}}元</li>
         <li class="col06">
             <div class="num_add">
                 <a href="javascript:;" class="add fl">+</a>
@@ -219,11 +187,11 @@
             </div>
         </li>
 
+
         <li class="col07">0</li>
         <li class="col08"><a href="javascript:;">删除</a></li>
-
     </ul>
-        {% endfor %}
+{%endfor%}
 
     <ul class="settlements">
         <li class="col01"><input id="chkall" type="checkbox" name=""  checked ></li>

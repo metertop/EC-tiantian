@@ -19,6 +19,7 @@ def remove_cart(request):
     cartid = request.POST['cartid']
     cartinfo = CartInfo.objects.get(pk=cartid)
     cartinfo.delete()
+    return JsonResponse({'ok':'ok'})
 
 # 接受返回的数据，格式为querydic,{u"count":[, ], u"ototal":[, ], u"price":[, ], u"goods":[, ], }
 def to_order(request):
@@ -32,10 +33,15 @@ def to_order(request):
     goodslist = dict.getlist('goods')
     countlist = dict.getlist('count')
     pricelist = dict.getlist('price')
+    cartidlist = dict.getlist('cart_id')
     for i in range(len(goodslist)):
         goods = goodslist[i]
         count = countlist[i]
         price = pricelist[i]
+        cartid = cartidlist[i]
         orderdetail = OrderDetailInfo.objects.create(order=order, goods=goods, count=count, price=price)
+        cartinfo = CartInfo.objects.get(pk=cartid)
+        cartinfo.delete()
+
     return JsonResponse({"ok":"ok"})
 
