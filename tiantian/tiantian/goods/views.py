@@ -26,6 +26,7 @@ def index(request,context):
 			goodsList.append(list)
 
 	context = {'list': goodsList,"cartNum":cartNum}
+	print(context)
 	return render(request,"goods/index_shopping.html",context)
 
 # 详情
@@ -53,8 +54,10 @@ def detail(request,id):
 
 # 列表页
 def list(request,id,pIndex):
+	print id
 	list = GoodsInfo.objects.filter(gtype_id=id)
-	list1 = GoodsInfo.objects.filter(gtype_id=id,gnews='news')[:2]
+	list1 = GoodsInfo.objects.filter(gtype_id=id,gnews='news')
+	print list
 	# 通过Paginator类获取每页显示15条信息
 	p = Paginator(list, 5)
 
@@ -115,7 +118,7 @@ def logout(request):
 	del request.session['uname']
 	return redirect('/goods/')
 
-
+@IsLogin
 def userCenter(request):
 	return redirect('/consumer/user_center_info/')
 

@@ -2,7 +2,7 @@
 from django.db import models
 
 
-#商品分类
+#商品分类   
 class TypeInfo(models.Model):
     ttitle = models.CharField(max_length=30)
     title1 = models.CharField(max_length=30)

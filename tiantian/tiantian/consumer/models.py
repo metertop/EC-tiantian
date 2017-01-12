@@ -1,6 +1,7 @@
 #coding=utf-8
 from django.db import models
 
+#
 class UserInfo(models.Model):
 	# 用户信息
 	uname = models.CharField(max_length=20)
@@ -13,7 +14,6 @@ class UserInfo(models.Model):
 
 	class Meta():
 		db_table = "userinfo"
-
 
 class RecInfo(models.Model):
 	#收件人地址信息

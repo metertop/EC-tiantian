@@ -25,13 +25,11 @@
             $(this).children(".col07").text(String(subtotal)+'元');
             total_count(total, count);
 
-<<<<<<< HEAD
                 <!--单选框操作    -->
             $(this).children("li.col01").children().click(function(){
-=======
+
             // 单选框点击操作,如果checked为true（false），变为false（true），总数count及总价total跟着变化
             $(this).children(".col01").children().click(function(){
->>>>>>> 94d66d135b536d19b3b87568b911fa7e50e6312c
                 if ($(this).is(":checked")) {
                     $(this).prop("checked",true)
                     count += num
@@ -109,17 +107,14 @@
                 total_count(total_1, count_1)
             }
             else{
-<<<<<<< HEAD
                 $(":checkbox").prop("checked",false)
                 $('ul.settlements').find('em').text(0); <!--添加总计金额-->
                 $('ul.settlements').find('b').text(0);  <!--添加末尾总数-->
                 $('.total_count').find('em').text(0);
-=======
                 $(":checkbox").prop("checked",false);
                 count = 0;
                 total = 0;
-                    total_count(total, count)
->>>>>>> 94d66d135b536d19b3b87568b911fa7e50e6312c
+                total_count(total, count)
             }
         });
 
@@ -161,6 +156,7 @@
         });
     })
 </script>
+
 {%endblock%}
 {% block middle %}
 {%load staticfiles%}

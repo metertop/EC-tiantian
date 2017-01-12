@@ -149,11 +149,7 @@ def user_center_info(request):
 				'name':user_list[0].uname,
 				'tel':user_list[0].utel,
 				'address':user_list[0].address,
-<<<<<<< HEAD
 				'latest_goods_list':latest_goods_list
-=======
-				'latest_goods_list':latest_goods_list,
->>>>>>> 44aabf271f60bb440ebadf54e6e9c8e1be169d46
 				}
 	return render(request,'consumer/user_center_info.html',context)
 
