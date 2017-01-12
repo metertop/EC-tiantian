@@ -1,0 +1,15 @@
+.gradle
+.idea
+/local.properties
+.DS_Store
+/build
+*.iml
+*.pyc
+.gitignore
+.idea/EC-tiantian.iml
+.idea/misc.xml
+.idea/modules.xml
+tiantian/tiantian/goods/search_indexes.pyc
+tiantian/tiantian/whoosh_index/
+
+
