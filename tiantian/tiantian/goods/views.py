@@ -41,7 +41,7 @@ def detail(request,id):
 		request.session['latest_goods_list'] = latest_goods_list
 	list = GoodsInfo.objects.get(id=id)
 	# 通过过滤取出对应的商品分类且是新品的商品
-	list1 = GoodsInfo.objects.filter(gnews='news',gtype=list.gtype)
+	list1 = GoodsInfo.objects.filter(gnews='news',gtype=list.gtype)[:2]
 	cartNum = 0
 	if request.session.has_key('id'):
 		user_id = request.session.get('id')
@@ -54,7 +54,7 @@ def detail(request,id):
 # 列表页
 def list(request,id,pIndex):
 	list = GoodsInfo.objects.filter(gtype_id=id)
-	list1 = GoodsInfo.objects.filter(gtype_id=id,gnews='news')
+	list1 = GoodsInfo.objects.filter(gtype_id=id,gnews='news')[:2]
 	# 通过Paginator类获取每页显示15条信息
 	p = Paginator(list, 5)
 
@@ -111,6 +111,7 @@ def register(request):
 
 
 def logout(request):
+	del request.session['id'] 
 	del request.session['uname']
 	return redirect('/goods/')
 

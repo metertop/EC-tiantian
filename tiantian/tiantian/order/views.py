@@ -37,3 +37,5 @@ def orderDetailsInfo(request):
 	context = {'orderdetailsinfo':orderdetailsinfo}
 	return render(request,'order/order_details_info.html',context)
 
+
+
