@@ -24,19 +24,18 @@ def index(request,context):
 		# 列表不为空进行添加
 		if list:
 			goodsList.append(list)
-<<<<<<< HEAD
 
-	context = {'list': goodsList,"cartNum":cartNum}
-=======
-	# print(context['uname'])
+	goodsContext = {"list":goodsList,"cartNum":cartNum}
+
+	# print('--------' + context['uname'])
 	#if context['uname']:
 	if request.session.has_key('uname'):
-		context = {'uname':context['uname'],'list': goodsList,"cartNum":cartNum}
+		goodsContext = {"uname":context['uname'], "list": goodsList,"cartNum":cartNum}
 	else:
-		context = {'list': goodsList,"cartNum":cartNum}
->>>>>>> 9ee79a7bc7deda2e135c38374f4039aaa95ed96a
-	print(context)
-	return render(request,"goods/index_shopping.html",context)
+		goodsContext = {'list': goodsList,"cartNum":cartNum}
+
+	print(goodsContext)
+	return render(request,"goods/index_shopping.html",goodsContext)
 
 # 详情
 def detail(request,id):

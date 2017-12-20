@@ -19,7 +19,7 @@ class TypeInfo(models.Model):
         db_table = "typeInfo"
 
 
-#商品
+# 商品
 class GoodsInfo(models.Model):
     gtitle = models.CharField(max_length=50)
     gprice = models.DecimalField(max_digits=10,decimal_places=2)

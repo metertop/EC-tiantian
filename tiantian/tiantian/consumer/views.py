@@ -6,7 +6,8 @@ from models import UserInfo,RecInfo
 from django.views.decorators.csrf import csrf_exempt
 from goods.models import GoodsInfo
 
-#登陆
+
+#   登陆
 def login(request):
 	remberName = request.COOKIES.get('remberName')
 	if remberName:
@@ -16,11 +17,14 @@ def login(request):
 		print(remberName)
 		return render(request,"consumer/login.html")
 
-#注册
+
+#   注册
 def register(request):
 		return render(request,"consumer/register.html")
 
-#注册:检查用户名是否存在
+
+
+#   注册:检查用户名是否存在
 @csrf_exempt
 def checkReName(request):
 	namehad = request.POST['uname']
@@ -31,6 +35,8 @@ def checkReName(request):
 	else:
 		checkResult = 0
 	return JsonResponse({'checkResult':checkResult})
+
+
 
 #注册:检查邮箱是否存在
 @csrf_exempt
@@ -111,14 +117,17 @@ def loginHandle(request):
 		try:			
 			#查询提取用户信息
 			user_list = UserInfo.objects.filter(uname=uname)
+
+
 			if len(user_list) == 0:  #没有该用户
-				context = {"errinfo":"用户名或密码错误!"}
+				context = {"errinfo":"没有该用户"}
 				return render(request,"consumer/login.html",context)
 			elif user_list[0].upwd == pwd:
 				save_id = user_list[0].id
 				request.session['id'] = save_id
 				request.session['uname'] = uname
 				flag = request.POST.get('isrember', default='')
+
 				#勾选记住用户名
 				if flag == "on":
 					response = HttpResponseRedirect("/goods/index/")
