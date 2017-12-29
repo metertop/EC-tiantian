@@ -28,6 +28,11 @@ class="active"
 
 {% block right_content %}
 
+<style type="text/css">
+	.user_errors,.add_errors {color:#e62e2e;}
+
+</style>
+
 <div class="right_content clearfix">
 				<h3 class="common_title2">收货地址</h3>
 				<div class="site_con">
@@ -44,20 +49,23 @@ class="active"
 				<div class="site_con">
 					<form action="/consumer/recInfoHandle/" method="post">
 						<div class="form_group">
-							<label>收件人：</label>
+							<label>*收件人：</label>
 							<input type="text" name="name">
+							<div class="user_errors">{{user_errinfo}}</div>
 						</div>
 						<div class="form_group form_group2">
-							<label>详细地址：</label>
+							<label>*详细地址：</label>
 							<textarea class="site_area" name="address"></textarea>
+							<div class="add_errors">{{add_errinfo}}</div>
 						</div>
 						<div class="form_group">
 							<label>邮编：</label>
 							<input type="text" name="postcode">
 						</div>
 						<div class="form_group">
-							<label>手机：</label>
+							<label>*手机：</label>
 							<input type="text" name="tel">
+							<div class="user_errors">{{tel_errinfo}}</div>
 						</div>
 
 						<input type="submit" name="" value="提交" class="info_submit">

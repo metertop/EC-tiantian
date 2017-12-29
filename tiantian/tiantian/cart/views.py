@@ -4,12 +4,15 @@ from order.models import OrderInfo,OrderDetailInfo
 from django.http import JsonResponse
 from models import CartInfo
 import json
-
+from django.views.decorators.csrf import csrf_exempt
+import time
 
 # 购物车主页，根据session找到用户id，从CartInfo中查数据
 def cart(request):
     uid = request.session.get('id')
     cartlist = CartInfo.objects.filter(user_id=uid)
+    print("----"*10)
+    print(cartlist)
     context = {'cartlist':cartlist}
     return render(request, 'cart/cart.html', context)
 
@@ -21,13 +24,18 @@ def remove_cart(request):
     cartinfo.delete()
     return JsonResponse({'ok':'ok'})
 
+
 # 接受返回的数据，格式为querydic,{u"count":[, ], u"ototal":[, ], u"price":[, ], u"goods":[, ], }
+@csrf_exempt
 def to_order(request):
     dict = request.POST
 
     user = request.session.get('id')
     ototal = dict.get('ototal')
-    orderinfo = OrderInfo.objects.create(user=user, ototal=ototal, state=False,)
+    o_date = time.strftime("%Y-%m-%d %H:%M:%S")
+    o_address = 1
+
+    orderinfo = OrderInfo.objects.create(user=user, ototal=ototal, state=False, odata=o_date, address_id=o_address)
 
     order = orderinfo.id
     goodslist = dict.getlist('goods')
