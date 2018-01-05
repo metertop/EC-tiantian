@@ -3,6 +3,7 @@
 <script src="/static/js/cart.js"></script>
 {% load staticfiles %}
 
+<!--
 <script>
     $(function() {
         var total = 0;
@@ -11,11 +12,11 @@
         //定义函数添加total及count
         function total_count(total, count) {
             $('.settlements').find('em').text(String(total) + "元");
-            <!--添加总计金额-->
+            &lt;!&ndash;添加总计金额&ndash;&gt;
             $('.settlements').find('b').text(String(count));
-            <!--添加末尾总数-->
+            &lt;!&ndash;添加末尾总数&ndash;&gt;
             $('.total_count').find('em').text(String(count));
-            <!--添加开头总数-->
+            &lt;!&ndash;添加开头总数&ndash;&gt;
         }
 
         //每个商品展示的操作
@@ -30,7 +31,7 @@
             $(this).children(".col07").text(String(subtotal) + '元');
             total_count(total, count);
 
-            <!--单选框操作    -->
+            &lt;!&ndash;单选框操作    &ndash;&gt;
             $(this).children("li.col01").children().click(function () {
 
                 // 单选框点击操作,如果checked为true（false），变为false（true），总数count及总价total跟着变化
@@ -85,7 +86,7 @@
                     total = (total * 1000 - parseFloat($(this).parent().prev('li').text()) * 1000) / 1000;
                     count -= parseInt($(this).closest("ul").find(".num_show").attr('value'));
                     total_count(total, count);
-                    $.post("remove_cart/",
+                    $.post("/cart/remove_cart/",
                         {
                             "cartid": cart_id
                         }, function () {
@@ -114,9 +115,9 @@
                 else {
                     $(":checkbox").prop("checked", false)
                     $('ul.settlements').find('em').text(0);
-                    <!--添加总计金额-->
+                    &lt;!&ndash;添加总计金额&ndash;&gt;
                     $('ul.settlements').find('b').text(0);
-                    <!--添加末尾总数-->
+                    &lt;!&ndash;添加末尾总数&ndash;&gt;
                     $('.total_count').find('em').text(0);
                     $(":checkbox").prop("checked", false);
                     count = 0;
@@ -137,7 +138,8 @@
                 $(".cart_list_td").each(function () {
                     if ($(this).children('.col01').children().is(':checked')) {
                         cart_id.push($(this).children('.col03').attr('id'));
-                        goods.push($(this).children('.col03').text());
+                        goods.push($(this).children('.col03').text());       // 商品名称，提交到数据库失败
+                        goods.push()
                         countnum.push($(this).children('.col06').find('input.num_show').attr('value'));
                         price.push($(this).children('.col05').text().split('元')[0]);
                     }
@@ -164,13 +166,14 @@
         });
     });
 </script>
+-->
 
 
 {%endblock%}
 {% block middle %}
 {%load staticfiles%}
     <div class="search_bar clearfix">
-        <a href="index.html" class="logo fl"><img src="{% static 'images/logo.png' %}"></a>
+        <a href="/goods/index/" class="logo fl"><img src="{% static 'images/logo.png' %}"></a>
         <div class="sub_page_name fl">|&nbsp;&nbsp;&nbsp;&nbsp;购物车</div>
         <div class="search_con fr">
             <input type="text" class="input_text fl" name="" placeholder="搜索商品">

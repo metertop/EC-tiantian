@@ -8,6 +8,9 @@ from django.http import *
 from tiantian.MyDecorator import *
 from django.views.decorators.csrf import csrf_exempt
 from django.core.urlresolvers import reverse
+from django.http import HttpResponseRedirect
+
+
 # 首页
 @IsLogin
 def index(request,context):
@@ -109,27 +112,17 @@ def immediatelyBuy(request,id):
 def addCart(request):
 	num = request.POST.get('num', default=1)
 	good_id = request.POST['value']
-	# is_user = request.session.has_key('id')
-    #
-	# if is_user:
-
 	user_id = request.session.get('id')
-	print('-' * 20)
-	print(user_id)
 	# cart = CartInfo.objects.filter(user_id=user_id,good_id=good_id)
 	cart = CartInfo()
 	cart.user_id = user_id
 	cart.goods_id = good_id
 	cart.count = num
 	cart.save()
-	# else:
-	# 	return redirect(request,"/consumer/login")
-	# return HttpResponse("ok")
-
-	return redirect(reverse('/goods/cart/'))
+	return HttpResponse('ok')
 
 
-#首页上面的登录,注册,注销,用户中心,我的购物车,我的订单按钮
+# 首页上面的登录,注册,注销,用户中心,我的购物车,我的订单按钮
 def login(request):
 	return redirect('/consumer/login/')
 
@@ -143,12 +136,14 @@ def logout(request):
 	del request.session['uname']
 	return redirect('/goods/')
 
-# @RequireLogin
+
+
 # @IsLogin
 def userCenter(request):
 	return redirect('/consumer/user_center_info/')
 
 
+@csrf_exempt
 @RequireLogin
 @IsLogin
 def cart(request,context):
@@ -156,11 +151,11 @@ def cart(request,context):
 	cartlist = CartInfo.objects.filter(user_id=uid)
 	print("----" * 10)
 	print(cartlist)
-	context = {'cartlist': cartlist}
-	return render(request, 'cart/cart.html', context)
+	cart_context = {'cartlist': cartlist, 'uname': context['uname']}
+	return render(request, 'cart/cart.html', cart_context)
 
 
 @RequireLogin
 @IsLogin
-def order(request,context):
+def order(request, context):
 	return render(request, 'order/user_center_order.html', context)

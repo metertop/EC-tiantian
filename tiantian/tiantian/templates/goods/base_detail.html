@@ -1,6 +1,7 @@
 {% extends 'goods/base_top_common.html'%}
 {% load staticfiles %}
 {% block bottomContent%}
+	<script type="text/javascript" src="{% static 'js/pop_window.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/addCart.js'%}"></script>
     <div class="breadcrumb">
 		<a href="#">全部分类</a>
@@ -23,7 +24,7 @@
 			<div class="goods_num clearfix">
 				<div class="num_name fl">数 量：</div>
 				<div class="num_add fl">
-					<input type="text" class="num_show fl" value="0">
+					<input type="text" class="num_show fl" value="1">
 					<a href="javascript:;" class="add fr">+</a>
 					<a href="javascript:;" class="minus fr">-</a>
 				</div>

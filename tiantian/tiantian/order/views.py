@@ -2,20 +2,24 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator
 import MySQLdb
-from models import OrderInfo,OrderDetailInfo,GoodsInfo,CartInfo
+from models import OrderInfo,OrderDetailInfo
 from django.views.decorators.csrf import csrf_exempt
 from tiantian.MyDecorator import *
 
+
 # 提交订单页面
-def placeOrder(request):
-    #session 获取id
+@IsLogin
+def placeOrder(request, context):
+    # session 获取id
     user_id = request.session.get('id')
-    #订单总览：从购物车获取已选择的商品，购物车已传入数据到OrderInfo，OrderDetailInfo
+    # 订单总览：从购物车获取已选择的商品，购物车已传入数据到OrderInfo，OrderDetailInfo
     orderinfo = OrderInfo.objects.filter(user=user_id)
-    #获取订单详情
+    # 获取订单详情
     orderdetailsinfo = OrderDetailInfo.objects.filter(order=orderinfo[0].id)
-    context = {'orderinfo':orderinfo,'orderdetailsinfo':orderdetailsinf}
-    return render(request,'order/user_center_order.html',context)
+    context_order = {'orderinfo': orderinfo, 'orderdetailsinfo': orderdetailsinfo, 'uname': context['uname']}
+    print('-------------提交订单---------------')
+    print(orderinfo[0])
+    return render(request, 'order/user_center_order.html', context_order)
 
 
 # 订单总览页面
@@ -23,10 +27,9 @@ def placeOrder(request):
 def userCenterOrder(request, context):
     #session 获取id
     user_id = request.session.get('id')
-
-    #订单总览：从购物车获取已选择的商品，购物车已传入数据到OrderInfo，OrderDetailInfo
+    # 订单总览：从购物车获取已选择的商品，购物车已传入数据到OrderInfo，OrderDetailInfo
     orderinfo = OrderInfo.objects.filter(user=user_id)
-    order_context = {"uname":context['uname']}
+    order_context = {"uname": context['uname']}
     print("*" * 20)
     print(orderinfo)
     order_count = len(orderinfo)
@@ -35,6 +38,8 @@ def userCenterOrder(request, context):
         order_details_info = OrderDetailInfo.objects.filter(order=orderinfo[0].id)
         order_context.update({'orderinfo': orderinfo, 'orderdetailsinfo': order_details_info})
 
+    print(u'---订单中心---')
+    print(order_details_info[0].goods.gprice)
     return render(request,'order/user_center_order.html', order_context)
 
 
@@ -48,7 +53,7 @@ def pageTab(request,Pindex):
     list2 = p.page(pIndex)
     plist = p.page_range
     context = {'list': list2, 'plist': plist, 'pIndex': pIndex}
-    return render(request,'order/user_center_order.html',context)
+    return render(request, 'order/user_center_order.html', context)
 
 
 

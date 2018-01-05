@@ -73,7 +73,7 @@
                 total = (total*1000 - parseFloat($(this).parent().prev('li').text())*1000)/1000;
                 count -= parseInt($(this).closest("ul").find(".num_show").attr('value'));
                 total_count(total, count);
-                $.post("remove_cart/",
+                $.post("/cart/remove_cart/",
                     {
                     "cartid":cart_id
                     },   function(){

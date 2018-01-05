@@ -160,29 +160,34 @@ def loginout(request):
     return redirect('/goods/index/')
 
 
-@RequireLogin
+
 # 跳转到用户中心个人信息页面
+@RequireLogin
 def user_center_info(request):
     get_id = request.session.get('id')
     user_list = UserInfo.objects.filter(id=get_id)
     list1 = request.session.get('latest_goods_list')
     #转换成集合去重
-    set1 = set(list1)
-    list2 = list(set1)
-    latest_goods_list_id = list2[0:5]
+    try:
+        set1 = set(list1)
+        list2 = list(set1)
+        latest_goods_list_id = list2[0:5]
+    except:   # 没有latest_goods_list
+        latest_goods_list_id = []
     print(latest_goods_list_id)
     latest_goods_list = []
     for goods_id in latest_goods_list_id:
-        goods = GoodsInfo.objects.get(id=goods_id)
+        goods = GoodsInfo.objects.get (id=goods_id)
         latest_goods_list.append(goods)
-    context = {
+    u_context = {
                 'uname': user_list[0].uname,    #  为了top上展示用户名
+
                 'name': user_list[0].uname,
                 'tel': user_list[0].utel,
                 'address': user_list[0].address,
                 'latest_goods_list': latest_goods_list
                 }
-    return render(request, 'consumer/user_center_info.html',context)
+    return render(request, 'consumer/user_center_info.html', u_context)
 
 
 @RequireLogin

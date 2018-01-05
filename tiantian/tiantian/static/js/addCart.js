@@ -25,7 +25,7 @@ $(function ()
         $('.num_show').val(++$num);
         totalPrice = $price * $num
         $total.text(totalPrice + " 元");
-        $('.goods_count').text($num);
+        // $('.goods_count').text($num);
     });
 
     // 删除商品
@@ -73,18 +73,27 @@ $(function ()
     // });
 
 
+
     // 加入购物车点击事件
     $('.add_cart').click(function ()
     {
-        $('.num_show').val(++$num);
+
+        // $('.num_show').val(++$num);     // 去掉自增
         totalPrice = $price * $num;
         $total.text(totalPrice + " 元");
-        $('.goods_count').text($num);
+        // $('.goods_count').text($num);
         value = $('#goods_id').val();
-        $.post('/addCart/',{'num':$num,"value":value},function (data)
+        $src_count = parseInt($('.goods_count').text());
+        // alert($src_count)
+        $new_count = $src_count + parseInt($num)  // 添加的时候，数字增加
+        $.post('/goods/addCart/',{'num':$num,"value":value},function (data)
         {
-            $('.goods_count').text($num);
+            $('.goods_count').text($new_count);
+
         });
+    //    引入外部弹框js  pop_window.js
+        new Toast({context:$('body'),message:'成功添加到购物车！'}).show();
+
     });
 
     $('.add_goods').click(function ()
@@ -92,5 +101,7 @@ $(function ()
         $goodsNum = $('.goods_count').text();
         $('.goods_count').text(++$goodsNum);
     });
+
+
 
 });
