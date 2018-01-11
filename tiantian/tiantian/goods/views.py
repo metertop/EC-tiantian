@@ -4,12 +4,14 @@ from models import *
 from django.core.paginator import *
 from cart.models import *
 from consumer.models import *
+from order.models import *
 from django.http import *
 from tiantian.MyDecorator import *
 from django.views.decorators.csrf import csrf_exempt
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
-
+from tiantian.OrderUtil import order_num
+import time
 
 # 首页
 @IsLogin
@@ -95,15 +97,42 @@ def list(request, context, id, pIndex):
 	return render(request,"goods/goods_list.html",context)
 
 
-#立即购买
-def immediatelyBuy(request,id):
-	#user_id = request.session.get('id')  # 获取用户名???存ID比较好
-	uid = 1
-	# cartlist = CartInfo.objects.filter(user_id=uid,goods_id=id)
-	goodsList = GoodsInfo.objects.filter(id=id)
-	# context = {'cartlist': cartlist,"goods":goods}
-	context = {"goodsList": goodsList}
-	return render(request, 'order/place_order.html', context)
+#立即购买   {{address}}&nbsp;&nbsp;（{{name}}&nbsp;收）&nbsp;&nbsp;{{tel}}
+@IsLogin
+def immediatelyBuy(request, context):
+	user_id = request.session.get('id')  # 获取用户名???存ID比较好
+	dict1 = request.GET
+	goods_id = dict1.get('g_id')
+	goods_count = dict1.get('g_count')
+	goodsInfo = GoodsInfo.objects.get(id=goods_id)
+	goods_price = goodsInfo.gprice
+	ototal = float(goods_price) * int(goods_count)
+	print(u"立即购买页面")
+	print(ototal)
+	o_date = time.strftime("%Y-%m-%d %H:%M:%S")
+	o_num = order_num()
+	user_add = RecInfo.objects.filter(userNum=user_id)
+	o_address = user_add[0].id  # 暂时默认
+	user_info = UserInfo.objects.filter(id=user_id)
+	orderinfo = OrderInfo.objects.create(user=user_id, ototal=ototal, state=False, odata=o_date, address_id=o_address,
+										onum=o_num)
+	order = orderinfo
+	tranPay = 10    # 运费10元
+	needPay = tranPay+ototal
+	orderdetail = OrderDetailInfo.objects.create(order=order, goods_id=goods_id, count=goods_count, price=goods_price, tprice=ototal)
+	b_context = {"goodsInfo": goodsInfo, "uname": context['uname'], 'addressInfos': user_add, 'orderdetailsinfo': orderdetail, 'tranPay':tranPay,'needPay':needPay}
+	return render(request, 'order/place_order.html', b_context)
+
+
+# 立即购买--提交订单
+def submit_buy(request, orderid):
+	# OrderInfo.objects.filter(id=orderid).update(state=True)    #   多条更新，使用 filter().update()
+
+	# 以下是单条更新
+	orderInfo = OrderInfo.objects.get(id=orderid)
+	orderInfo.state = True
+	orderInfo.save()
+	return redirect('/order/userCenterOrder/')
 
 
 # 添加购物车
@@ -158,4 +187,5 @@ def cart(request,context):
 @RequireLogin
 @IsLogin
 def order(request, context):
-	return render(request, 'order/user_center_order.html', context)
+	# return render(request, 'order/user_center_order.html', context)
+	return redirect('/order/userCenterOrder/')

@@ -7,6 +7,7 @@ from consumer.models import UserInfo, RecInfo
 import json
 from django.views.decorators.csrf import csrf_exempt
 import time
+from tiantian.OrderUtil import order_num
 
 
 # 购物车主页，根据session找到用户id，从CartInfo中查数据
@@ -33,6 +34,7 @@ def to_order(request):
     user = request.session.get('id')
     ototal = dict1.get('ototal')
     o_date = time.strftime("%Y-%m-%d %H:%M:%S")
+    o_num = order_num()
     user_add = RecInfo.objects.filter(userNum=user)
     # print(user)
     # print("u" * 20)
@@ -42,7 +44,7 @@ def to_order(request):
     o_address = user_add[0].id  # 暂时默认
     print('ccc'*20)
     print(ototal)
-    orderinfo = OrderInfo.objects.create(user=user, ototal=ototal, state=False, odata=o_date, address_id=o_address)
+    orderinfo = OrderInfo.objects.create(user=user, ototal=ototal, state=False, odata=o_date, address_id=o_address, onum=o_num)
     order = orderinfo
     goodslist = dict1.getlist('goods')
     countlist = dict1.getlist('count')
@@ -55,7 +57,6 @@ def to_order(request):
         goods = cartinfo.goods
         count = countlist[i]
         price = pricelist[i]
-
         orderdetail = OrderDetailInfo.objects.create(order=order, goods=goods, count=count, price=price, tprice=ototal)
         cartinfo.delete()
 

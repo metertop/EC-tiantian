@@ -11,6 +11,18 @@ $(function ()
     $price = $('.show_pirze em').text();
     $cartNum = $('.goods_count').text();
 
+    buyUrl();   //页面加载完成后生成一次
+    // 立即购买链接生成 haoyx 2018/1/10
+    function buyUrl() {
+        var $g_count = $('.num_show').val();
+        // alert($g_count);
+        var $g_id = $('#goods_id').val()
+        $buy_url = '/goods/immediatelyBuy?g_id=' + $g_id + '&g_count=' + $g_count;
+        $('.buy_btn').attr('href',$buy_url);
+
+    }
+
+
     // 总价,
     totalPrice = $price * $num
     // 初始化总价格
@@ -26,6 +38,7 @@ $(function ()
         totalPrice = $price * $num
         $total.text(totalPrice + " 元");
         // $('.goods_count').text($num);
+        buyUrl();   // 重新生成url
     });
 
     // 删除商品
@@ -42,19 +55,23 @@ $(function ()
         totalPrice = $price * $num
         $total.text(totalPrice + "元");
         $('.goods_count').text($num);
+
+        buyUrl();   // 重新生成url
     });
 
     // 当用户在输入框中输入一个值,当失去焦点时进行判断
     $('.num_show').blur(function () {
 
         // 匹配不能以0开头的正整数
-        var reg = /^[1-9]\d*$/
+        var reg = /^\d*$/
         $numText = $('.num_show').val();
         if(!reg.test($numText))
         {
-            alert("输入不合法");
-            $('.num_show').val(0);
-            $total.text(0 + " 元");
+            // alert("输入不合法");
+            new Toast({context:$('body'),message:'输入不合法'}).show();
+            $('.num_show').val(1);
+            totalPrice = $price * 1;
+            $total.text(totalPrice + " 元");
         }
         else
         {
@@ -63,6 +80,8 @@ $(function ()
             $total.text(totalPrice + " 元");
             $('.goods_count').text($numText);
         }
+
+        buyUrl();   // 重新生成url
         
     });
 
@@ -73,6 +92,11 @@ $(function ()
     // });
 
 
+  /*  $('.buy_btn').click(function () {
+		    $g_count = $('.num_show').val();
+		    $g_id = $('#goods_id').val();
+		    $.get("/goods/immediatelyBuy",{'g_id':$g_id, "g_count":$g_count},function(){});
+    });*/
 
     // 加入购物车点击事件
     $('.add_cart').click(function ()

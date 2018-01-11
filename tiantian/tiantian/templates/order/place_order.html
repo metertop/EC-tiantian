@@ -7,8 +7,7 @@
 	
 	<script type="text/javascript">
 			// 小计金额
-			$(function sub_total(){
-				
+			/*$(function sub_total(){
 				var oinfo.goods.price = $('.col05');
 				var oinfo.goods.count = $('.col06');
 				var subtotal = $('.col07');
@@ -27,26 +26,31 @@
 			// 实付款金额
 			$(function total_price(){
 					var totalAmount = $('.total_goods_count');
-					var 10 = $('.transit');
+					var transit_money = $('.transit');
 					var ototal = $('.total_pay');
-					ototal = (totalAmount)+10
+					ototal = (totalAmount)+transit_money
 
-			});
+			});*/
 
 			// 判断如果点击提交订单，即支付状态为已支付
-			$('#order_btn').click(function(){
-				?????
-				var OrderInfo.state == True;
+			/*$(function () {
+				$('#order_btn').click(function(){
+					orderdetailsinfo.order.state == True;
 
-			});
+				});
+            })*/
+
 	</script>
+<!--{"goodsInfo": goodsInfo, "uname": context['uname'], 'addressInfos': user_add, 'orderdetailsinfo': orderdetail}-->
 	
 	{% csrf_token%}
 	<h3 class="common_title">确认收货地址</h3>
 	<div class="common_list_con clearfix">
 		<dl>
 			<dt>寄送到：</dt>
-			<dd><input type="radio" name="" checked="">{{address}}&nbsp;&nbsp;（{{name}}&nbsp;收）&nbsp;&nbsp;{{tel}}</dd>
+			{% for addressInfo in addressInfos %}
+			<dd><input type="radio" name="" checked="">{{addressInfo.address}}&nbsp;&nbsp;（{{addressInfo.name}}&nbsp;收）&nbsp;&nbsp;{{addressInfo.tel}}</dd>
+			{% endfor %}
 		</dl>
 		<a href="/consumer/user_center_site/" class="edit_site">编辑收货地址</a>
 	</div>
@@ -75,31 +79,34 @@
 			<li class="col04">数量</li>
 			<li class="col05">小计</li>		
 		</ul>
-{% for odinfo in orderdetailsinfo %}
+{#  {% for odinfo in orderdetailsinfo %}  #}
+
 		<ul class="goods_list_td clearfix">
 			<li class="col01">1</li>			
-			<li class="col02"><img src="/static/images/goods/goods012.jpg"></li>
-			<li class="col03">{{oinfo.goods}}</li>
+			<li class="col02"><img src="/static/media/{{orderdetailsinfo.goods.gimgAdd}}"></li>
+			<li class="col03">{{orderdetailsinfo.goods}}</li>
 			<li class="col04">500g</li>
-			<li class="col05">{{oinfo.goods.price}}元</li>
-			<li class="col06">{{oinfo.goods.count}}</li>
-			<li class="col07">{{subtotal}}元</li>	
+			<li class="col05">{{orderdetailsinfo.goods.gprice}}元</li>
+			<li class="col06">{{orderdetailsinfo.count}}件</li>
+			<li class="col07">{{orderdetailsinfo.tprice}}元</li>
 		</ul>
+
 	</div>
-{%endfor %}	
+{# {%endfor %} #}
 
 	<h3 class="common_title">总金额结算</h3>
 	<div class="common_list_con clearfix">
 		<div class="settle_con">
-			<div class="total_goods_count">共<em>{{CartInfo.count}}</em>件商品，总金额<b>{{totalAmount}}元</b></div>
-			<div class="transit">运费：<b>10元</b></div>
-			<div class="total_pay">实付款：<b>{{ototal}}元</b></div>
+			<div class="total_goods_count">共<em>{{orderdetailsinfo.count}}</em>件商品，总金额<b>{{orderdetailsinfo.tprice}}元</b></div>
+			<div class="transit">运费：<b>{{tranPay}}元</b></div>
+			<div class="total_pay">需付款：<b>{{needPay}}元</b></div>
 		</div>
 	</div>
 
 
 	<div class="order_submit clearfix">
-		<a href="javascript:;" id="order_btn">提交订单</a>
+	<!--	<a href="javascript:;" id="order_btn">提交订单</a>-->
+		<a href="/goods/submit_buy/{{orderdetailsinfo.order_id}}" id="order_btn">提交订单</a>
 	</div>	
 
 	

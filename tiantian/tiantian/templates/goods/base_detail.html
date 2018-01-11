@@ -3,6 +3,16 @@
 {% block bottomContent%}
 	<script type="text/javascript" src="{% static 'js/pop_window.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/addCart.js'%}"></script>
+	<script	type="text/javascript">
+
+
+
+
+
+
+	</script>
+
+
     <div class="breadcrumb">
 		<a href="#">全部分类</a>
 		<span>></span>
@@ -13,7 +23,6 @@
 
 	<div class="goods_detail_con clearfix">
 		<div class="goods_detail_pic fl"><img src="/static/media/{{goods.gimgDetail}}"></div>
-
 		<div class="goods_detail_list fr">
 			<h3>{{goods.gtitle}}</h3>
 			<p>{{goods.gdesc}}</p>
@@ -31,7 +40,10 @@
 			</div>
 			<div class="total">总价：<em>16.80元</em></div>
 			<div class="operate_btn">
-				<a href="/goods/immediatelyBuy/{{ goods.id }}" class="buy_btn">立即购买</a>
+				<a href="" class="buy_btn">立即购买</a>
+			<!--	<a href="/goods/immediatelyBuy?g_id={{ goods.id }}&g_count=" class="buy_btn">立即购买</a>-->
+				<!--<a href="javascript:;" class="buy_btn">立即购买</a>-->
+
 				<a href="javascript:;" class="add_cart" id="add_cart">加入购物车</a>
                 <input type="hidden" name="goods_id" id="goods_id" value="{{ goods.id }}">
 			</div>

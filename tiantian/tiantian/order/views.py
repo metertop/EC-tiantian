@@ -2,7 +2,7 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator
 import MySQLdb
-from models import OrderInfo,OrderDetailInfo
+from models import OrderInfo, OrderDetailInfo
 from django.views.decorators.csrf import csrf_exempt
 from tiantian.MyDecorator import *
 
@@ -17,8 +17,6 @@ def placeOrder(request, context):
     # 获取订单详情
     orderdetailsinfo = OrderDetailInfo.objects.filter(order=orderinfo[0].id)
     context_order = {'orderinfo': orderinfo, 'orderdetailsinfo': orderdetailsinfo, 'uname': context['uname']}
-    print('-------------提交订单---------------')
-    print(orderinfo[0])
     return render(request, 'order/user_center_order.html', context_order)
 
 
@@ -30,16 +28,11 @@ def userCenterOrder(request, context):
     # 订单总览：从购物车获取已选择的商品，购物车已传入数据到OrderInfo，OrderDetailInfo
     orderinfo = OrderInfo.objects.filter(user=user_id)
     order_context = {"uname": context['uname']}
-    print("*" * 20)
-    print(orderinfo)
     order_count = len(orderinfo)
     if order_count != 0:
         #获取订单详情
-        order_details_info = OrderDetailInfo.objects.filter(order=orderinfo[0].id)
-        order_context.update({'orderinfo': orderinfo, 'orderdetailsinfo': order_details_info})
-
-    print(u'---订单中心---')
-    print(order_details_info[0].goods.gprice)
+        order_details_info = OrderDetailInfo.objects.filter(order=orderinfo).order_by('-id')
+        order_context.update({'orderinfo': orderinfo, 'orderdetailsinfo': order_details_info, 'order_count': order_count})
     return render(request,'order/user_center_order.html', order_context)
 
 
